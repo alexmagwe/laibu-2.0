@@ -55,27 +55,20 @@ model User {
 }
 
 model Course {
-    id    String       @id @default(uuid())
+    id    String @id @default(uuid())
     users User[]
-    code  String       @unique
+    code  String @unique
     name  String
-    units CourseUnit[]
-}
-
-model CourseUnit {
-    id       String @id @default(uuid())
-    courseId String
-    unitId   String
-    course   Course @relation(fields: [courseId], references: [id])
-    unit     Unit   @relation(fields: [unitId], references: [id])
+    units Unit[]
 }
 
 model Unit {
     id         String               @id @default(uuid())
-    course     CourseUnit[]
+    courses    Course[]
     name       String
     code       String               @unique
     year       Int
+    type       String               @default("Core")
     semester   Int
     content    Content[]
     moderators UserModeratingUnit[]
@@ -98,10 +91,16 @@ model Content {
     uploader    User           @relation(fields: [uploaderId], references: [id])
     uploaderId  String
     uploadDate  DateTime       @default(now())
-    hidden      Boolean        @default(false)
+    permissions Permissions    @default(RESTRICTED)
     unit        Unit[]
     url         String         @unique
     type        ContentVariant @default(Content)
+}
+
+enum Permissions {
+    HIDDEN
+    PUBLIC
+    RESTRICTED
 }
 
 enum ContentVariant {

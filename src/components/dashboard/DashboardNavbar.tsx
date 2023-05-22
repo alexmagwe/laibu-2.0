@@ -1,8 +1,10 @@
 'use client'
+import React from 'react'
 import { useState } from 'react'
 import { SessionProvider } from 'next-auth/react'
 import { Search } from 'lucide-react'
 import ThemeSwitch from './sidebar/ThemeSwitch'
+import UserAvatar from '../ui/UserProfile'
 
 export default function DashboardNavbar() {
     const [menuState, setMenuState] = useState(false)
@@ -13,7 +15,7 @@ export default function DashboardNavbar() {
         { title: 'Store', path: '/store' },
     ]
     return (
-        <nav className=" border-b border-slate-200 dark:border-slate-600">
+        <nav className=" border-b border-slate-300 dark:border-slate-600">
             <div className="flex items-center space-x-8 py-3 px-4 max-w-screen-xl mx-auto md:px-8">
                 <div className="flex-1 flex items-center justify-between">
                     <div
@@ -30,7 +32,7 @@ export default function DashboardNavbar() {
                         </ul>
                     </div>
                     <div className="flex-1 flex items-center justify-end space-x-2 sm:space-x-6">
-                        <form className="relative bg-slate-900/50 flex items-center  border rounded-md ">
+                        <form className="relative dark:bg-blue-900/30 bg-cyan-200/20 dark:border-blue-900/20 shadow-md flex items-center  border rounded-md ">
                             <span>
                                 <Search
                                     className=" absolute right-2 top-50 -translate-y-[50%]"
@@ -38,14 +40,18 @@ export default function DashboardNavbar() {
                                 />
                             </span>
                             <input
-                                className="w-full dark:bg-slate-900/50 bg-slate-200 p-2 rounded-md outline-none appearance-none placeholder-gray-500  sm:w-auto"
+                                className="w-full dark:bg-slate-900/50 bg-cyan-200/20 dark:border-blue-900/20 p-2 rounded-md outline-none appearance-none placeholder-gray-500  sm:w-auto"
                                 type="text"
                                 placeholder="Search"
                             />
                         </form>
+                        <ThemeSwitch />
+                        <div className="flex items-center gap-x-4">
+                            <UserAvatar />
+                        </div>
 
                         <button
-                            className="outline-none text-gray-400 block lg:hidden"
+                            className="outline-none text-gray-400 block md:hidden"
                             onClick={() => setMenuState(!menuState)}
                         >
                             {menuState ? (
@@ -80,7 +86,6 @@ export default function DashboardNavbar() {
                                 </svg>
                             )}
                         </button>
-                        <ThemeSwitch />
                     </div>
                 </div>
             </div>

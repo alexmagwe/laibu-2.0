@@ -1,35 +1,51 @@
 'use client'
-import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
+import { Avatar, AvatarImage } from './avatar'
+import {
+    DropdownMenu,
+    DropdownMenuTrigger,
+    DropdownMenuContent,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuItem,
+} from './dropdown-menu'
+import { User2Icon } from 'lucide-react'
 import { SessionProvider, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
+import LogoutButton from '../LogoutButton'
 
 type Props = {}
 
 function UserSidebarProfile({}: Props) {
     const user = useSession().data?.user
+    console.log(user)
     return (
-        <>
-            {user && user.image && (
-                <Link
-                    href="/profile"
-                    className="mt-px w-full  hover:text-indigo-600 text-xs flex flex-wrap items-center justify-center gap-2"
-                >
-                    <Avatar className="my-2">
-                        <AvatarImage
-                            className="w-12 h-12 rounded-full"
-                            src={user.image}
-                        />
-                    </Avatar>
-                    <div className="hidden">
-                        <p className=" text-sm font-semibold">
-                            {user.name ?? ''}
-                        </p>
-                        View profile
-                    </div>
-                </Link>
-            )}
-        </>
+        <div className="">
+            <DropdownMenu>
+                <DropdownMenuTrigger>
+                    {user && user.image ? (
+                        <Avatar className="my-2">
+                            <AvatarImage src={user.image} />
+                        </Avatar>
+                    ) : (
+                        <User2Icon size={30} />
+                    )}
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="dark:bg-slate-700 dark:text-slate-100 dark:border-slate-600">
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuSeparator className="dark:text-slate-600" />
+                    <DropdownMenuItem>
+                        <Link href="/billing">Billing</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                        <Link href="/settings">Subscription</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                        <LogoutButton />
+                    </DropdownMenuItem>
+                </DropdownMenuContent>
+            </DropdownMenu>
+        </div>
     )
 }
 

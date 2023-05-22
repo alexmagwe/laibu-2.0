@@ -21,7 +21,7 @@ export default async function RootLayout({
             <body
                 className={clsx(
                     inter.className,
-                    'dark:bg-slate-800 bg-slate-300 dark:text-slate-300 text-gray-700'
+                    'dark:bg-slate-900 bg-slate-200 dark:text-slate-300 text-gray-700'
                 )}
             >
                 {children}

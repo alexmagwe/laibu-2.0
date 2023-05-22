@@ -21,7 +21,6 @@ import { Button } from '@/components/ui/button'
 import { toast } from 'react-hot-toast'
 import { Loader2 } from 'lucide-react'
 import { userUniversitySchema } from '@/lib/validations/userUniversitySchema'
-import { set } from 'zod'
 type Props = {
     courses: Course[]
     user: User | null
@@ -106,6 +105,7 @@ export default function UserForm({ courses, user }: Props) {
                 toast.error('Something went wrong')
             }
             setIsSubmitting(false)
+            setOpen(false)
         } catch (e) {
             toast.error('Something went wrong')
             setIsSubmitting(false)
@@ -119,7 +119,7 @@ export default function UserForm({ courses, user }: Props) {
                     Get started
                 </button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
+            <DialogContent className="dark:bg-slate-900">
                 <DialogHeader>
                     <DialogTitle>Update profile</DialogTitle>
                     <DialogDescription>

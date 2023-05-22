@@ -9,6 +9,33 @@ const routeContextSchema = z.object({
         userId: z.string(),
     }),
 })
+// export async function GET(
+//     request: Request,
+//     context: z.infer<typeof routeContextSchema>
+// ) {
+//     console.log('context', context)
+//     try {
+//         const { params } = routeContextSchema.parse(context)
+//         const session = await getServerSession(authOptions)
+//         console.log('session', session)
+//         if (!session?.user || params.userId !== (session.user.id ?? ''))
+//             return new Response(JSON.stringify({ error: 'unauthorized' }), {
+//                 status: 401,
+//             })
+
+//         const user = await db.user.findUnique({
+//             where: { id: session.user.id },
+//             include: {
+//                 course: true,
+//             },
+//         })
+//         return new Response(JSON.stringify(user), { status: 200 })
+//     } catch (e) {
+//         return new Response(null, {
+//             status: 500,
+//         })
+//     }
+// }
 
 export async function PUT(
     request: Request,
