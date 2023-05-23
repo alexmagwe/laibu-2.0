@@ -63,15 +63,16 @@ model Course {
 }
 
 model Unit {
-    id         String               @id @default(uuid())
-    courses    Course[]
-    name       String
-    code       String               @unique
-    year       Int
-    type       String               @default("Core")
-    semester   Int
-    content    Content[]
-    moderators UserModeratingUnit[]
+    id             String               @id @default(uuid())
+    courses        Course[]
+    name           String
+    code           String               @unique
+    year           Int
+    type           String               @default("Core")
+    semester       Int
+    max_moderators Int                  @default(2)
+    content        Content[]
+    moderators     UserModeratingUnit[]
 }
 
 model UserModeratingUnit {

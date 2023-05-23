@@ -1,5 +1,4 @@
 'use client'
-
 import * as React from 'react'
 import { Check, ChevronsUpDown, Loader2 } from 'lucide-react'
 
@@ -43,7 +42,7 @@ export function SelectSemester({ title }: { title: string }) {
                         <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                 </PopoverTrigger>
-                <PopoverContent className="p-0">
+                <PopoverContent align="start">
                     <Command>
                         <CommandInput placeholder="Search semester..." />
                         <CommandEmpty>No semester found.</CommandEmpty>

@@ -1,4 +1,4 @@
-import { getUser } from '@/lib/getUser'
+import { getAuthUser } from '@/lib/getUser'
 import React from 'react'
 import UserForm from './UserForm'
 import { db } from '@/lib/db'
@@ -6,7 +6,7 @@ import { db } from '@/lib/db'
 type Props = {}
 
 async function page({}: Props) {
-    const authUser = await getUser()
+    const authUser = await getAuthUser()
     const courses = await db.course.findMany()
     const user = await db.user.findFirst({
         where: {

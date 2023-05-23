@@ -4,9 +4,9 @@ import { User } from '@prisma/client'
 import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
-import empty from '/public/assets/empty.png'
 import { clsx } from 'clsx'
 import _ from 'lodash'
+import EmptyContent from '@/components/ui/emptyContent'
 type Props = {
     user: UserWithCourse
 }
@@ -37,7 +37,7 @@ async function SemesterUnits({ user }: Props) {
                         <Link
                             className="w-full sm:w-auto bg-cyan-400/20 hover:scale-105 hover:bg-cyan-300/20 dark:hover:bg-blue-800/20 duration-200 relative dark:bg-blue-900/20 rounded-md flex gap-2 md:items-center py-8 px-8"
                             key={item.id}
-                            href={`/dashboard/units/${item.code}`}
+                            href={`/unit/${item.code}`}
                         >
                             <div className="px-4 py-6 flex flex-col  md:items-center">
                                 <h2 className="text-2xl">{item.name}</h2>
@@ -59,25 +59,7 @@ async function SemesterUnits({ user }: Props) {
                     ))}
                 </div>
             ) : (
-                <div>
-                    <div className="p-4  flex flex-col gap-4 items-center">
-                        <Image
-                            src={empty.src}
-                            alt="empty content"
-                            width={150}
-                            height={150}
-                        />
-                        <h2 className="text-xl">
-                            Units for this course are not Available,
-                            <Link
-                                href="/dashboard/add"
-                                className="text-purple-600 dark:text-purple-400"
-                            >
-                                &nbsp;earn free credits by adding the units
-                            </Link>
-                        </h2>
-                    </div>
-                </div>
+                <EmptyContent caption=" Units for this course are not Available" />
             )}
         </div>
     )

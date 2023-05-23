@@ -1,19 +1,19 @@
 import React from 'react'
 import { db } from '@/lib/db'
-import { getUser, getUserInfo } from '@/lib/getUser'
+import { getAuthUser, getUserFromDb } from '@/lib/getUser'
 import { UserWithCourse } from '@/lib/validations/userInfoSchema'
 import SemesterUnits, { UnitsSkeleton } from './overview/SemesterUnits'
 type Props = {}
 
 async function page({}: Props) {
-    const user: UserWithCourse = await getUserInfo()
+    const user = await getUserFromDb()
 
     return (
         <div className="p-4">
             <RecentSkeleton />
             <React.Suspense fallback={<UnitsSkeleton />}>
                 {/* @ts-expect-error Server Component */}
-                <SemesterUnits user={user} />
+                {user ? <SemesterUnits user={user} /> : null}
             </React.Suspense>
             {/* <UnitsSkeleton /> */}
         </div>

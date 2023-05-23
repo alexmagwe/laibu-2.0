@@ -47,7 +47,7 @@ export function SelectYear({ title }: { title: string }) {
                         <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                 </PopoverTrigger>
-                <PopoverContent className="p-0">
+                <PopoverContent align="start" className="p-0">
                     <Command>
                         <CommandInput placeholder="Search year..." />
                         <CommandEmpty>No year found.</CommandEmpty>

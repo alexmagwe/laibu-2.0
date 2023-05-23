@@ -18,7 +18,6 @@ type Props = {}
 
 function UserSidebarProfile({}: Props) {
     const user = useSession().data?.user
-    console.log(user)
     return (
         <div className="">
             <DropdownMenu>
@@ -31,9 +30,9 @@ function UserSidebarProfile({}: Props) {
                         <User2Icon size={30} />
                     )}
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="dark:bg-slate-700 dark:text-slate-100 dark:border-slate-600">
+                <DropdownMenuContent className="">
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                    <DropdownMenuSeparator className="dark:text-slate-600" />
+                    <DropdownMenuSeparator className="" />
                     <DropdownMenuItem>
                         <Link href="/billing">Billing</Link>
                     </DropdownMenuItem>

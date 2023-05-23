@@ -11,6 +11,7 @@ export const authOptions: NextAuthOptions = {
         strategy: 'jwt',
     },
     secret: process.env.NEXTAUTH_SECRET,
+
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID ?? '',
@@ -23,7 +24,6 @@ export const authOptions: NextAuthOptions = {
         },
         async session({ session, token }) {
             session.user.id = token.id
-
             return session
         },
         async jwt({ token, user, account, profile }) {

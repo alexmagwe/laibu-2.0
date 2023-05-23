@@ -32,7 +32,6 @@ export default withAuth(
     {
         callbacks: {
             async authorized({ token }) {
-                console.log('authorized', token)
                 return true
             },
         },

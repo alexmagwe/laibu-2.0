@@ -19,8 +19,9 @@ import {
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { toast } from 'react-hot-toast'
-import { Loader2 } from 'lucide-react'
+import { Loader2, Router } from 'lucide-react'
 import { userUniversitySchema } from '@/lib/validations/userUniversitySchema'
+import { useRouter } from 'next/navigation'
 type Props = {
     courses: Course[]
     user: User | null
@@ -74,6 +75,7 @@ export const formContext = React.createContext<FormContextType>({
 export default function UserForm({ courses, user }: Props) {
     const [course, setCourse] = React.useState<Course>()
     const [open, setOpen] = React.useState(false)
+    const router = useRouter()
     const [isSubmitting, setIsSubmitting] = React.useState(false)
     const [year, setYear] = React.useState<number | undefined>()
     const [acceptedTerms, setAcceptedTerms] = React.useState<
@@ -82,7 +84,6 @@ export default function UserForm({ courses, user }: Props) {
     const [semester, setSemester] = React.useState<number | undefined>()
 
     const handleSubmit = async () => {
-        console.log(course, year, semester)
         setIsSubmitting(true)
         //TODO add accept terms
         const result = userUniversitySchema.safeParse({
@@ -106,6 +107,7 @@ export default function UserForm({ courses, user }: Props) {
             }
             setIsSubmitting(false)
             setOpen(false)
+            router.refresh()
         } catch (e) {
             toast.error('Something went wrong')
             setIsSubmitting(false)
@@ -115,11 +117,11 @@ export default function UserForm({ courses, user }: Props) {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <button className="rounded-md px-3 py-2 text-white bg-blue-700">
+                <button className="rounded-md px-3 py-2 text-white bg-purple-600">
                     Get started
                 </button>
             </DialogTrigger>
-            <DialogContent className="dark:bg-slate-900">
+            <DialogContent>
                 <DialogHeader>
                     <DialogTitle>Update profile</DialogTitle>
                     <DialogDescription>
@@ -148,6 +150,7 @@ export default function UserForm({ courses, user }: Props) {
                 </formContext.Provider>
                 <DialogFooter>
                     <Button
+                        className="bg-purple-600 text-slate-100"
                         disabled={isSubmitting}
                         onClick={(e) => {
                             e.preventDefault()

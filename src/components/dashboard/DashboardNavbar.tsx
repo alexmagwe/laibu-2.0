@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import { SessionProvider } from 'next-auth/react'
 import { Search } from 'lucide-react'
-import ThemeSwitch from './sidebar/ThemeSwitch'
+import ThemeSwitch from '../ui/ThemeSwitch'
 import UserAvatar from '../ui/UserProfile'
 
 export default function DashboardNavbar() {
@@ -25,14 +25,14 @@ export default function DashboardNavbar() {
                     >
                         <ul className="mt-12 space-y-5 lg:flex lg:space-x-6 lg:space-y-0 lg:mt-0">
                             {navigation.map((item, idx) => (
-                                <li key={idx} className=" hover:text-gray-900">
+                                <li key={idx} className=" hover:itext-gray-900">
                                     <a href={item.path}>{item.title}</a>
                                 </li>
                             ))}
                         </ul>
                     </div>
                     <div className="flex-1 flex items-center justify-end space-x-2 sm:space-x-6">
-                        <form className="relative dark:bg-blue-900/30 bg-cyan-200/20 dark:border-blue-900/20 shadow-md flex items-center  border rounded-md ">
+                        <form className="relative shadow-md flex items-center  border rounded-md ">
                             <span>
                                 <Search
                                     className=" absolute right-2 top-50 -translate-y-[50%]"
@@ -40,7 +40,7 @@ export default function DashboardNavbar() {
                                 />
                             </span>
                             <input
-                                className="w-full dark:bg-slate-900/50 bg-cyan-200/20 dark:border-blue-900/20 p-2 rounded-md outline-none appearance-none placeholder-gray-500  sm:w-auto"
+                                className="w-full p-2 rounded-md outline-none appearance-none placeholder-gray-500  sm:w-auto"
                                 type="text"
                                 placeholder="Search"
                             />
