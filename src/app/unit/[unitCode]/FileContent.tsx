@@ -4,15 +4,10 @@ import React from 'react'
 import { FileItem } from './FileItem'
 import { db } from '@/lib/db'
 import EmptyContent from '@/components/ui/emptyContent'
-import { link } from 'fs'
 import Link from 'next/link'
 
 type Props = {
-    unit:
-        | (Unit & {
-              moderators: UserModeratingUnit[]
-          })
-        | null
+    unit:Unit 
 }
 export const revalidate = 3600
 const getContent = async (unitId: string) => {
@@ -41,7 +36,7 @@ export default async function FileContent({ unit }: Props) {
                 ) : (
                     <div className="py-8">
                         {unit && (
-                            <EmptyContent caption="Content not Uploaded yet," />
+                            <EmptyContent caption="Content not available yet," />
                         )}
                     </div>
                 )}

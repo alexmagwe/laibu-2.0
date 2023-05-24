@@ -27,18 +27,18 @@ function UserSidebarProfile({}: Props) {
                             <AvatarImage src={user.image} />
                         </Avatar>
                     ) : (
-                        <User2Icon size={30} />
+                        <User2Icon size={20} />
                     )}
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="">
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                     <DropdownMenuSeparator className="" />
                     <DropdownMenuItem>
-                        <Link href="/billing">Billing</Link>
+                        <Link href="/profile">Profile</Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
+                    {/* <DropdownMenuItem>
                         <Link href="/settings">Subscription</Link>
-                    </DropdownMenuItem>
+                    </DropdownMenuItem> */}
                     <DropdownMenuItem>
                         <LogoutButton />
                     </DropdownMenuItem>

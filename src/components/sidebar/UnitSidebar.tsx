@@ -18,20 +18,20 @@ type Props = {
     unit: Unit
 }
 
-const Sidebar = ({ navigation, showFooter = true, unit }: Props) => {
+const Sidebar = ({ navigation, showFooter = false, unit }: Props) => {
     //todo add link when user is moderator
 
     return (
         <aside className="max-w-[200px] bg-secondary  min-h-screen  shadow-md sticky top-0 items-start z-50 pt-8">
             <div className="w-full h-full flex flex-col ">
                 <SidebarHeader unit={unit} />
-                <div className=" flex flex-col flex-1 justify-between">
+                <div className=" flex flex-col flex-1 items-center justify-between">
                     <ul className="px-4 text-sm  font-medium ">
                         {navigation.map((item, idx) => (
                             <li key={idx}>
                                 <Link
                                     href={item.href}
-                                    className="my-2 flex items-center gap-x-2  p-2 rounded-lg  hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-gray-700 dark:active:bg-gray-700  duration-150"
+                                    className="my-2 flex items-center gap-x-2  p-2 rounded-lg  hover:bg-accent active:bg-accent  duration-150"
                                 >
                                     <div className="">{item.icon}</div>
                                     {item.name}
@@ -75,7 +75,10 @@ const SidebarHeader = ({ unit }: HeaderProps) => {
                         <p className="text-sm text-muted-foreground">
                             {unit?.code}
                         </p>
-                        <ChevronsUpDown className="inline-block" size={20} />
+                        <ChevronsUpDown
+                            className="inline-block text-purple-700"
+                            size={20}
+                        />
                     </div>
                 </CollapsibleTrigger>
                 <CollapsibleContent>
@@ -88,7 +91,7 @@ const SidebarHeader = ({ unit }: HeaderProps) => {
                                 'text-md mb-2',
                                 unit.type == 'Core'
                                     ? 'text-lime-500'
-                                    : 'text-purple-500'
+                                    : 'text-muted-foreground'
                             )}
                         >
                             {unit.type}

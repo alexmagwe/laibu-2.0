@@ -3,13 +3,26 @@ import { db } from '@/lib/db'
 import { getAuthUser, getUserFromDb } from '@/lib/getUser'
 import { UserWithCourse } from '@/lib/validations/userInfoSchema'
 import SemesterUnits, { UnitsSkeleton } from './overview/SemesterUnits'
+import ModerationBanner from '../../components/dashboard/ModeratorBanner'
+import { Skeleton } from '@/components/ui/skeleton'
 type Props = {}
-
+export const getModerators = async (courseId: string) => {
+    const data = await db.userModeratingCourse.findMany({
+        where: {
+            courseId: {
+                equals: courseId,
+            },
+        },
+    })
+    return data
+}
 async function page({}: Props) {
     const user = await getUserFromDb()
 
     return (
         <div className="p-4">
+            {/* @ts-expect-error Server Component */}
+            {user && <ModerationBanner courseId={user?.courseId} />}
             <RecentSkeleton />
             <React.Suspense fallback={<UnitsSkeleton />}>
                 {/* @ts-expect-error Server Component */}
@@ -27,11 +40,11 @@ export const RecentSkeleton = () => {
         <div className="p-4 ">
             <div className="animate-pulse flex space-x-4">
                 <div className="flex-1 space-y-4 py-1">
-                    <div className="h-6 bg-cyan-300/20 dark:bg-gray-700 rounded w-1/4"></div>
+                    <Skeleton className="h-6  rounded w-1/4" />
                     <div className="flex gap-4 items-center w-1/2 ">
-                        <div className="h-36 flex-1 bg-cyan-300/20 dark:bg-gray-700 rounded"></div>
-                        <div className="h-36 flex-1 bg-cyan-300/20 dark:bg-gray-700 rounded "></div>
-                        <div className="h-36 flex-1 bg-cyan-300/20 dark:bg-gray-700 rounded "></div>
+                        <Skeleton className="h-36 flex-1  rounded" />
+                        <Skeleton className="h-36 flex-1  rounded " />
+                        <Skeleton className="h-36 flex-1  rounded " />
                     </div>
                 </div>
             </div>

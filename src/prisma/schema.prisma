@@ -36,78 +36,84 @@ model Session {
 }
 
 model User {
-    id            String               @id @default(cuid())
+    id            String                 @id @default(cuid())
     name          String?
-    email         String?              @unique
+    email         String?                @unique
     emailVerified DateTime?
     image         String?
-    isNew         Boolean              @default(true)
+    isNew         Boolean                @default(true)
     username      String?
-    uploads       Content[]
     courseId      String?
-    course        Course?              @relation(fields: [courseId], references: [id])
+    course        Course?                @relation(fields: [courseId], references: [id])
     semester      Int?
     year          Int?
     accounts      Account[]
     sessions      Session[]
-    createdAt     DateTime             @default(now())
-    moderating    UserModeratingUnit[]
+    createdAt     DateTime               @default(now())
+    moderating    UserModeratingCourse[]
+    Content       Content[]
 }
 
 model Course {
-    id    String @id @default(uuid())
-    users User[]
-    code  String @unique
-    name  String
-    units Unit[]
+    id         String                 @id @default(uuid())
+    users      User[]
+    code       String                 @unique
+    name       String
+    units      Unit[]
+    moderators UserModeratingCourse[]
 }
 
 model Unit {
-    id             String               @id @default(uuid())
-    courses        Course[]
-    name           String
-    code           String               @unique
-    year           Int
-    type           String               @default("Core")
-    semester       Int
-    max_moderators Int                  @default(2)
-    content        Content[]
-    moderators     UserModeratingUnit[]
+    id       String    @id @default(uuid())
+    courses  Course[]
+    name     String
+    code     String    @unique
+    year     Int
+    type     String    @default("Core")
+    semester Int
+    content  Content[]
 }
 
-model UserModeratingUnit {
-    id         String   @id @default(uuid())
-    userId     String
-    start_date DateTime @default(now())
-    unitId     String
-    user       User     @relation(fields: [userId], references: [id])
-    unit       Unit     @relation(fields: [unitId], references: [id])
+model UserModeratingCourse {
+    id          String    @id @default(uuid())
+    userId      String
+    start_date  DateTime  @default(now())
+    phoneNumber String?
+    approved    Boolean   @default(false)
+    year        Int?
+    uploads     Content[]
+    courseId    String
+    user        User      @relation(fields: [userId], references: [id])
+    course      Course    @relation(fields: [courseId], references: [id])
 }
 
 model Content {
-    id          String         @id @default(uuid())
-    name        String         @unique
+    id          String               @id @default(uuid())
+    name        String               @unique
     updatedName String
     size        Int?
-    uploader    User           @relation(fields: [uploaderId], references: [id])
+    uploader    UserModeratingCourse @relation(fields: [uploaderId], references: [id])
     uploaderId  String
-    uploadDate  DateTime       @default(now())
-    permissions Permissions    @default(RESTRICTED)
+    uploadDate  DateTime             @default(now())
+    permissions Permissions          @default(EVERY_ONE)
     unit        Unit[]
-    url         String         @unique
-    type        ContentVariant @default(Content)
+    url         String               @unique
+    type        ContentVariant       @default(NOTES)
+    User        User?                @relation(fields: [userId], references: [id])
+    userId      String?
 }
 
 enum Permissions {
-    HIDDEN
-    PUBLIC
-    RESTRICTED
+    ONLY_ME
+    EVERY_ONE
+    COURSE_MEMBERS
 }
 
 enum ContentVariant {
-    Video
-    Assignment
-    Content
+    ASSIGNMENT
+    CAT
+    EXAM
+    NOTES
 }
 
 model VerificationToken {

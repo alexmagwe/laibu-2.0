@@ -12,10 +12,10 @@ export default function DashboardNavbar() {
     // Replace javascript:void(0) path with your path
     const navigation = [
         { title: 'Home', path: '/' },
-        { title: 'Store', path: '/store' },
+        // { title: 'Store', path: '/store' },
     ]
     return (
-        <nav className=" border-b border-slate-300 dark:border-slate-600">
+        <nav className=" border-b">
             <div className="flex items-center space-x-8 py-3 px-4 max-w-screen-xl mx-auto md:px-8">
                 <div className="flex-1 flex items-center justify-between">
                     <div

@@ -26,7 +26,7 @@ async function SemesterUnits({ user }: Props) {
     return (
         <div
             className={clsx(
-                'bg-cyan-200/20 dark:bg-blue-900/10 p-4  rounded-md',
+                'bg-card border-2 p-4  rounded-md',
                 data.length > 8 ? 'w-full' : 'lg:w-2/3'
             )}
         >
@@ -35,7 +35,7 @@ async function SemesterUnits({ user }: Props) {
                 <div className="flex flex-wrap gap-4">
                     {_.sortBy(data, 'type').map((item) => (
                         <Link
-                            className="w-full sm:w-auto bg-cyan-400/20 hover:scale-105 hover:bg-cyan-300/20 dark:hover:bg-blue-800/20 duration-200 relative dark:bg-blue-900/20 rounded-md flex gap-2 md:items-center py-8 px-8"
+                            className="w-full sm:w-auto bg-accent hover:scale-105 hover:bg-cyan-300/20 dark:hover:bg-blue-800/20 duration-200 relative dark:bg-blue-900/20 rounded-md flex gap-2 md:items-center py-8 px-8"
                             key={item.id}
                             href={`/unit/${item.code}`}
                         >
@@ -49,7 +49,7 @@ async function SemesterUnits({ user }: Props) {
                                         'rounded-lg absolute bottom-5 right-2 text-xs p-2 ',
                                         item.type === 'Core'
                                             ? 'bg-green-500/20 dark:bg-green-400/20 text-green-500 dark:text-green-400'
-                                            : 'bg-purple-500/20 dark:bg-purple-400/20 text-purple-500 dark:text-purple-400'
+                                            : 'bg-gray-300/20 dark:bg-gray-400/20 text-gray-500 dark:text-gray-400'
                                     )}
                                 >
                                     {item.type}

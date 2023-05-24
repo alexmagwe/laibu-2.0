@@ -40,8 +40,8 @@ const navigation = [
         icon: <Calendar />,
     },
     {
-        href: '/dashboard/content',
-        name: 'My Content',
+        href: '/dashboard/units',
+        name: 'Units',
         icon: <Library />,
     },
 ]

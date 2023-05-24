@@ -4,7 +4,6 @@ import Link from 'next/link'
 
 export default async function Home() {
     const user = await getAuthUser()
-    console.log('auth', user)
 
     return (
         <main className="flex min-h-screen flex-col items-center  p-24">

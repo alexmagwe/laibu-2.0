@@ -10,11 +10,11 @@ type Props = {
     showFooter?: boolean
 }
 
-const Sidebar = ({ navigation, showFooter = true }: Props) => {
-    //todod add link when user is moderator
+const Sidebar = ({ navigation, showFooter = false }: Props) => {
+    //todo add link for adding content when user is moderator
 
     return (
-        <aside className="max-w-xs min-h-screen border-r bg-cyan-200/20 dark:bg-blue-900/10  dark:border-blue-700/20 shadow-md sticky top-0 items-start z-50 pt-32">
+        <aside className="max-w-xs min-h-screen border-r bg-secondary shadow-lg sticky top-0 items-start z-50 pt-32">
             <div className="w-full h-full">
                 <div className="flex flex-col h-full  justify-between  overflow-auto">
                     <ul className="px-4 text-sm font-medium flex-1">
@@ -22,7 +22,7 @@ const Sidebar = ({ navigation, showFooter = true }: Props) => {
                             <li key={idx}>
                                 <Link
                                     href={item.href}
-                                    className="my-2 flex items-center gap-x-2  p-2 rounded-lg  hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-gray-700 dark:active:bg-gray-700  duration-150"
+                                    className="my-2 flex items-center gap-x-2  p-2 rounded-lg  hover:bg-accent   duration-150"
                                 >
                                     <div className="">{item.icon}</div>
                                     {item.name}
@@ -35,7 +35,7 @@ const Sidebar = ({ navigation, showFooter = true }: Props) => {
                         <Link href="/dashboard/add">Add</Link>
                     </li> */}
                     </ul>
-                    {showFooter ? (
+                    {/* {showFooter ? (
                         <div className="text-yellow-400 bg-purple-600 hover:bg-purple-50 active:bg-purple-100 dark:hover:bg-purple-700 dark:active:bg-purple-700 py-6 px-2">
                             <Link
                                 href="/dashboard/add"
@@ -45,7 +45,7 @@ const Sidebar = ({ navigation, showFooter = true }: Props) => {
                                 <p>Unlock credits</p>
                             </Link>
                         </div>
-                    ) : null}
+                    ) : null} */}
                 </div>
             </div>
         </aside>
