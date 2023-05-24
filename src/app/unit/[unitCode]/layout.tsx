@@ -16,9 +16,6 @@ export const getUnit = cache(async (unitCode: string) => {
         where: {
             code: decodeURI(unitCode),
         },
-        include: {
-            moderators: true,
-        },
     })
 })
 export async function generateMetadata({
