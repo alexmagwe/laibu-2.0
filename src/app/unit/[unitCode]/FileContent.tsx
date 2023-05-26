@@ -5,9 +5,11 @@ import { FileItem } from './FileItem'
 import { db } from '@/lib/db'
 import EmptyContent from '@/components/ui/emptyContent'
 import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { isModeratorForCourse } from '@/lib/user'
 
 type Props = {
-    unit:Unit 
+    unit: Unit
 }
 export const revalidate = 3600
 const getContent = async (unitId: string) => {
@@ -26,6 +28,7 @@ const getContent = async (unitId: string) => {
 }
 export default async function FileContent({ unit }: Props) {
     const files = await getContent(unit?.id!)
+    const isModerator = await isModeratorForCourse()
 
     return (
         <div className="flex bg-card border-2 rounded-md flex-col gap-2 p-4">
@@ -36,7 +39,12 @@ export default async function FileContent({ unit }: Props) {
                 ) : (
                     <div className="py-8">
                         {unit && (
-                            <EmptyContent caption="Content not available yet," />
+                            <div className="flex flex-col items-center gap-3">
+                                <EmptyContent caption="Content not available yet," />
+                                {isModerator && (
+                                    <Button className="">Add content</Button>
+                                )}
+                            </div>
                         )}
                     </div>
                 )}

@@ -2,16 +2,18 @@ import { db } from '@/lib/db'
 import { UserWithCourse } from '@/lib/validations/userInfoSchema'
 import { User } from '@prisma/client'
 import Link from 'next/link'
-import React from 'react'
+import React, { cache } from 'react'
 import Image from 'next/image'
 import { clsx } from 'clsx'
 import _ from 'lodash'
 import EmptyContent from '@/components/ui/emptyContent'
+import UnitCard from '@/components/dashboard/UnitCard'
 type Props = {
     user: UserWithCourse
+    title?: string
+    pathSuffix?: string
 }
-
-async function SemesterUnits({ user }: Props) {
+export const getSemesterUnits = cache(async (user: UserWithCourse) => {
     const data = await db.unit.findMany({
         where: {
             courses: {
@@ -23,6 +25,12 @@ async function SemesterUnits({ user }: Props) {
             year: { equals: user?.year! },
         },
     })
+    return data
+})
+
+async function SemesterUnits({ user, title, pathSuffix }: Props) {
+    const data = await getSemesterUnits(user)
+
     return (
         <div
             className={clsx(
@@ -30,32 +38,13 @@ async function SemesterUnits({ user }: Props) {
                 data.length > 8 ? 'w-full' : 'lg:w-2/3'
             )}
         >
-            <h2 className="text-2xl font-bold mb-4">Semester Units</h2>
+            <h2 className="text-2xl font-bold mb-4">
+                {title ? title : 'Semester Units'}
+            </h2>
             {data.length > 0 ? (
                 <div className="flex flex-wrap gap-4">
-                    {_.sortBy(data, 'type').map((item) => (
-                        <Link
-                            className="w-full sm:w-auto bg-accent hover:scale-105 hover:bg-cyan-300/20 dark:hover:bg-blue-800/20 duration-200 relative dark:bg-blue-900/20 rounded-md flex gap-2 md:items-center py-8 px-8"
-                            key={item.id}
-                            href={`/unit/${item.code}`}
-                        >
-                            <div className="px-4 py-6 flex flex-col  md:items-center">
-                                <h2 className="text-2xl">{item.name}</h2>
-                                <h3 className="text-lg text-gray-500">
-                                    {item.code}
-                                </h3>
-                                <div
-                                    className={clsx(
-                                        'rounded-lg absolute bottom-5 right-2 text-xs p-2 ',
-                                        item.type === 'Core'
-                                            ? 'bg-green-500/20 dark:bg-green-400/20 text-green-500 dark:text-green-400'
-                                            : 'bg-gray-300/20 dark:bg-gray-400/20 text-gray-500 dark:text-gray-400'
-                                    )}
-                                >
-                                    {item.type}
-                                </div>
-                            </div>
-                        </Link>
+                    {_.sortBy(data, 'type').map((item, i) => (
+                        <UnitCard pathSuffix={pathSuffix} key={i} item={item} />
                     ))}
                 </div>
             ) : (

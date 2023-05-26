@@ -39,17 +39,17 @@ export default function Moderate({ user }: Props) {
                     </DialogTitle>
                     <DialogDescription className="">
                         By applying to become a moderator, you will be able to:
-                        <ul className="flex px-6 flex-col my-4 list-disc gap-2">
-                            <li>
-                                <strong>Add</strong> or&nbsp;
-                                <strong>Delete</strong> content all units
-                            </li>
-                            <li>
-                                <strong>Set Permissions</strong>
-                                &nbsp;on who can view the content
-                            </li>
-                        </ul>
                     </DialogDescription>
+                    <ul className="flex px-6 flex-col my-4 list-disc gap-2">
+                        <li>
+                            <strong>Manage</strong>&nbsp;content of all units in
+                            for your current year
+                        </li>
+                        <li>
+                            <strong>Set Permissions</strong>
+                            &nbsp;on who can view the content
+                        </li>
+                    </ul>
                 </DialogHeader>
                 <ModerateForm user={user} setOpen={setOpen} />
             </DialogContent>

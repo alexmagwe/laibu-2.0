@@ -1,4 +1,4 @@
-import { getAuthUser } from '@/lib/getUser'
+import { getAuthUser } from '@/lib/user'
 import React from 'react'
 import UserForm from './UserForm'
 import { db } from '@/lib/db'

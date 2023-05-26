@@ -79,7 +79,6 @@ model UserModeratingCourse {
     userId      String
     start_date  DateTime  @default(now())
     phoneNumber String?
-    approved    Boolean   @default(false)
     year        Int?
     uploads     Content[]
     courseId    String

@@ -1,4 +1,4 @@
-import { ChevronRight, ChevronsUpDown, Sparkles } from 'lucide-react'
+import { ChevronRight, ChevronsUpDown, Plus, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 import { Content, Course, Unit } from '@prisma/client'
 import {
@@ -7,6 +7,7 @@ import {
     CollapsibleTrigger,
 } from '@/components/ui/collapsible'
 import clsx from 'clsx'
+import { isModeratorForCourse } from '@/lib/user'
 export type SidebarLink = {
     href: string
     name: string
@@ -18,8 +19,9 @@ type Props = {
     unit: Unit
 }
 
-const Sidebar = ({ navigation, showFooter = false, unit }: Props) => {
+const Sidebar = async ({ navigation, showFooter = false, unit }: Props) => {
     //todo add link when user is moderator
+    const isModerator = await isModeratorForCourse()
 
     return (
         <aside className="max-w-[200px] bg-secondary  min-h-screen  shadow-md sticky top-0 items-start z-50 pt-8">
@@ -28,17 +30,24 @@ const Sidebar = ({ navigation, showFooter = false, unit }: Props) => {
                 <div className=" flex flex-col flex-1 items-center justify-between">
                     <ul className="px-4 text-sm  font-medium ">
                         {navigation.map((item, idx) => (
-                            <li key={idx}>
-                                <Link
-                                    href={item.href}
-                                    className="my-2 flex items-center gap-x-2  p-2 rounded-lg  hover:bg-accent active:bg-accent  duration-150"
-                                >
-                                    <div className="">{item.icon}</div>
-                                    {item.name}
-                                </Link>
-                            </li>
+                            <Link
+                                key={idx}
+                                href={item.href}
+                                className="my-2 flex items-center gap-x-2  p-2 rounded-lg  hover:bg-accent active:bg-accent  duration-150"
+                            >
+                                <div className="">{item.icon}</div>
+                                {item.name}
+                            </Link>
                         ))}
-
+                        {isModerator && (
+                            <Link
+                                href={`/unit/${unit.code}/add`}
+                                className="my-2 flex items-center gap-x-2  p-2 rounded-lg  hover:bg-accent active:bg-accent  duration-150"
+                            >
+                                <Plus />
+                                <span>Add</span>
+                            </Link>
+                        )}
                         {/* <li className="my-2 flex items-center gap-x-2  p-2 rounded-lg  hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-gray-700 dark:active:bg-gray-700  duration-150">
                         <Plus />
                         <Link href="/dashboard/add">Add</Link>

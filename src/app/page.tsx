@@ -1,4 +1,4 @@
-import { getAuthUser } from '@/lib/getUser'
+import { getAuthUser } from '@/lib/user'
 import Image from 'next/image'
 import Link from 'next/link'
 

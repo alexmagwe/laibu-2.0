@@ -1,7 +1,6 @@
 import DashboardNavbar from '@/components/dashboard/DashboardNavbar'
 import SideBar from '@/components/dashboard/DashboardSidebar'
-import { db } from '@/lib/db'
-import { getAuthUser, getUserFromDb } from '@/lib/getUser'
+import { getAuthUser, getUserFromDb } from '@/lib/user'
 import { Calendar, LayoutDashboard, Library } from 'lucide-react'
 import React from 'react'
 import { Toaster } from 'react-hot-toast'
@@ -13,10 +12,6 @@ export const metadata = {
     title: 'Laibu',
     description: 'Personalized learning platform for students',
     keywords: ['laibu dashboard', 'laibu', 'laibu notes'],
-    themeColor: [
-        { media: '(prefers-color-scheme: light)', color: 'white' },
-        { media: '(prefers-color-scheme: dark)', color: 'black' },
-    ],
 }
 const navigation = [
     {
@@ -52,6 +47,7 @@ async function layout({ children, onboarding }: Props) {
     return (
         <main className="flex  ">
             <Toaster />
+            {/* @ts-expect-error  Server Component */}
             <SideBar navigation={navigation} />
             <div className="flex-1  col-span-7 flex flex-col gap-4 ">
                 <DashboardNavbar />

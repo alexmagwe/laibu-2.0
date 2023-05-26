@@ -24,16 +24,11 @@ export async function generateMetadata({
     params: { unitCode: string }
 }) {
     const unit = await getUnit(decodeURI(params.unitCode))
-    console.log(unit)
 
     return {
         title: unit?.code,
         description: unit?.name,
         keywords: [unit?.code, unit?.name],
-        themeColor: [
-            { media: '(prefers-color-scheme: light)', color: 'white' },
-            { media: '(prefers-color-scheme: dark)', color: 'black' },
-        ],
     }
 }
 
@@ -60,6 +55,7 @@ async function layout({ children, params }: Props) {
         <main className="">
             {unit ? (
                 <div className="flex">
+                    {/* @ts-expect-error Server Component */}
                     <Sidebar navigation={navigation} unit={unit} />
                     <div className="flex-1">
                         <DashboardNavbar />

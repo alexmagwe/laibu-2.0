@@ -1,21 +1,11 @@
 import React from 'react'
-import { db } from '@/lib/db'
-import { getAuthUser, getUserFromDb } from '@/lib/getUser'
-import { UserWithCourse } from '@/lib/validations/userInfoSchema'
+import { getUserFromDb } from '@/lib/user'
+
 import SemesterUnits, { UnitsSkeleton } from './overview/SemesterUnits'
 import ModerationBanner from '../../components/dashboard/ModeratorBanner'
 import { Skeleton } from '@/components/ui/skeleton'
 type Props = {}
-export const getModerators = async (courseId: string) => {
-    const data = await db.userModeratingCourse.findMany({
-        where: {
-            courseId: {
-                equals: courseId,
-            },
-        },
-    })
-    return data
-}
+
 async function page({}: Props) {
     const user = await getUserFromDb()
 

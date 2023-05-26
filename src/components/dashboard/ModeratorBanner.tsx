@@ -3,13 +3,21 @@ import { db } from '@/lib/db'
 import { Unit } from '@prisma/client'
 
 import Moderate from '../moderation/Moderate'
-import { getModerators } from '@/app/dashboard/page'
-import { getUserFromDb } from '@/lib/getUser'
+import { getUserFromDb } from '@/lib/user'
 
 export type BannerProps = {
     courseId: string
 }
-
+export const getModerators = async (courseId: string) => {
+    const data = await db.userModeratingCourse.findMany({
+        where: {
+            courseId: {
+                equals: courseId,
+            },
+        },
+    })
+    return data
+}
 export default async function ModeratorBanner({ courseId }: BannerProps) {
     const data = await getModerators(courseId)
     const user = await getUserFromDb()

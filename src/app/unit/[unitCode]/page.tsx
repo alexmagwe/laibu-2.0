@@ -1,10 +1,7 @@
 import React from 'react'
 import FileContent, { ContentSkeleton } from './FileContent'
 import { getUnit } from './layout'
-import EmptyContent from '@/components/ui/emptyContent'
-import { Unit, UserModeratingUnit } from '@prisma/client'
-import { db } from '@/lib/db'
-import { Banner } from '../../../components/dashboard/ModeratorBanner'
+
 type Props = {
     params: {
         unitCode: string

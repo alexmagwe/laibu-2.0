@@ -12,6 +12,7 @@ import { User2Icon } from 'lucide-react'
 import { SessionProvider, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
+import Image from 'next/image'
 import LogoutButton from '../LogoutButton'
 
 type Props = {}

@@ -6,7 +6,7 @@ import * as z from 'zod'
 import {
     moderationFormSchema,
     moderationSchema,
-} from '@/lib/validations/moderate'
+} from '@/lib/validations/moderationValidator'
 import {
     Form,
     FormControl,
@@ -21,6 +21,8 @@ import { Input } from '@/components/ui/input'
 import { db } from '@/lib/db'
 import { UserWithCourse } from '@/lib/validations/userInfoSchema'
 import { toast } from 'react-hot-toast'
+import { Loader2 } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 type FormProps = {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>
@@ -28,6 +30,7 @@ type FormProps = {
 }
 export function ModerateForm({ setOpen, user }: FormProps) {
     const [loading, setLoading] = React.useState(false)
+    const router = useRouter()
     const form = useForm<z.infer<typeof moderationFormSchema>>({
         resolver: zodResolver(moderationFormSchema),
         defaultValues: {
@@ -35,8 +38,8 @@ export function ModerateForm({ setOpen, user }: FormProps) {
         },
     })
     const onSubmit = async (data: z.infer<typeof moderationFormSchema>) => {
-        setOpen(false)
         setLoading(true)
+
         const d = {
             phoneNumber: data.phoneNumber,
             courseId: user?.courseId,
@@ -45,12 +48,21 @@ export function ModerateForm({ setOpen, user }: FormProps) {
         }
         try {
             const payload = moderationSchema.parse(d)
-            await fetch('/api/courses/moderate', {
+            const resp = await fetch('/api/courses/moderate', {
                 method: 'POST',
                 body: JSON.stringify(payload),
             })
-            toast.success('Moderation request sent')
-            setLoading(false)
+            if (resp.status == 200) {
+                toast.success(
+                    `You are now the moderator for ${user?.course?.name}`
+                )
+                setLoading(false)
+                setOpen(false)
+                router.refresh()
+            } else {
+                toast.error('Something went wrong')
+                setLoading(false)
+            }
         } catch (e) {
             if (e instanceof z.ZodError) {
                 console.log(e.errors)
@@ -82,8 +94,8 @@ export function ModerateForm({ setOpen, user }: FormProps) {
                         </FormItem>
                     )}
                 />
-                <Button className="" type="submit">
-                    Apply
+                <Button disabled={loading} className="" type="submit">
+                    {loading ? <Loader2 className="animate-spin" /> : 'Apply'}
                 </Button>
             </form>
         </Form>

@@ -23,3 +23,17 @@ export const getUserFromDb = cache(async () => {
         return null
     }
 })
+export const isModeratorForCourse = cache(async () => {
+    const user = await getUserFromDb()
+    if (user) {
+        const isModerator = await db.userModeratingCourse.findFirst({
+            where: {
+                userId: user.id,
+                courseId: user.courseId!,
+            },
+        })
+        return !!isModerator
+    }
+
+    return false
+})
