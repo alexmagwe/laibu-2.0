@@ -1,591 +1,594 @@
-[
-    {
-        "code": "CCS 001",
-        "course_title": "Communication Skills",
-        "year": 1,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "CCS 009",
-        "course_title": "Elements of Economics",
-        "year": 1,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "CCS 010",
-        "course_title": "HIV/AIDS",
-        "year": 1,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SPH 101",
-        "course_title": "Mechanics I",
-        "year": 1,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SPH 102",
-        "course_title": "Electricity and Magnetism",
-        "year": 1,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SPH 103",
-        "course_title": "Waves and Optics",
-        "year": 1,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SPM 100",
-        "course_title": "Computing Laboratory I",
-        "year": 1,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SPM 101",
-        "course_title": "Computing Laboratory",
-        "year": 1,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SMA 101",
-        "course_title": "Basic Mathematics",
-        "year": 1,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SMA 103",
-        "course_title": "Calculus I",
-        "year": 1,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SMA 104",
-        "course_title": "Calculus II",
-        "year": 1,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SMA 105",
-        "course_title": "Geometry I",
-        "year": 1,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SMA 108",
-        "course_title": "Discrete Mathematics",
-        "year": 1,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SMA 140",
-        "course_title": "Introduction to Probability and Statistics",
-        "year": 1,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SPH 201",
-        "course_title": "Mechanics II",
-        "year": 2,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SPH 203",
-        "course_title": "Structure and Properties of Matter",
-        "year": 2,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SPH 204",
-        "course_title": "Mathematical Physics I",
-        "year": 2,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SPM 200",
-        "course_title": "Embedded Systems Laboratory",
-        "year": 2,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SPM 201",
-        "course_title": "Mathematical and Geometric Modelling Laboratory",
-        "year": 2,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SPM 202",
-        "course_title": "Electromagnetic Fields and Circuits Laboratory",
-        "year": 2,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SPM 203",
-        "course_title": "Communication Networks",
-        "year": 2,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SPM 204",
-        "course_title": "Introduction to Operating Systems",
-        "year": 2,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SMA 201",
-        "course_title": "Calculus III",
-        "year": 2,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SMA 203",
-        "course_title": "Linear Algebra I",
-        "year": 2,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SMA 204",
-        "course_title": "Linear Algebra II",
-        "year": 2,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SMA 208",
-        "course_title": "Ordinary Differential Equations I",
-        "year": 2,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SMA 240",
-        "course_title": "Probability and Statistics I",
-        "year": 2,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SMA 221",
-        "course_title": "Vector Analysis",
-        "year": 2,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SPH 301",
-        "course_title": "Practical Physics",
-        "year": 3,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SPH 303",
-        "course_title": "Solid State Physics I",
-        "year": 3,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SPH 304",
-        "course_title": "Electrodynamics",
-        "year": 3,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 305",
-        "course_title": "Classical Mechanics",
-        "year": 3,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SPH 306",
-        "course_title": "Mathematical Physics II",
-        "year": 3,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SPH 308",
-        "course_title": "Physical Optics",
-        "year": 3,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SPH 309",
-        "course_title": "Quantum Mechanics I",
-        "year": 3,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SPH 310",
-        "course_title": "Environmental Physics",
-        "year": 3,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 311",
-        "course_title": "Introductory Geophysics",
-        "year": 3,
-        "semester": 2,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 350",
-        "course_title": "Atomic Physics",
-        "year": 3,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SPH 351",
-        "course_title": "Biophysics",
-        "year": 3,
-        "semester": 2,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 300",
-        "course_title": "Electronics Laboratory",
-        "year": 3,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 301",
-        "course_title": "Introductory Electronics",
-        "year": 3,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 302",
-        "course_title": "Digital Electronics",
-        "year": 3,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 303",
-        "course_title": "Advanced Electronics",
-        "year": 3,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 304",
-        "course_title": "Microwave Theory and Circuits",
-        "year": 3,
-        "semester": 2,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 305",
-        "course_title": "Signals and Systems",
-        "year": 3,
-        "semester": 2,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 306",
-        "course_title": "Control Systems",
-        "year": 3,
-        "semester": 2,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 307",
-        "course_title": "Computational Physics",
-        "year": 3,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 403",
-        "course_title": "Solid State Physics II",
-        "year": 4,
-        "semester": 2,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 404",
-        "course_title": "Statistical Physics",
-        "year": 4,
-        "semester": 2,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 405",
-        "course_title": "Electrodynamics II",
-        "year": 4,
-        "semester": 2,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 407",
-        "course_title": "Mathematical Physics III",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 408",
-        "course_title": "Physics of Materials",
-        "year": 4,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SPH 409",
-        "course_title": "Quantum Mechanics II",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 411",
-        "course_title": "Surface Physics",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 413",
-        "course_title": "Astrophysics",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 414",
-        "course_title": "Elementary Particle Physics",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 415",
-        "course_title": "Applied Geophysics",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 416",
-        "course_title": "Rock Magnetism and Paleomagnetism",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 417",
-        "course_title": "Aeronomy",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 450",
-        "course_title": "Research and Experimental Methods",
-        "year": 4,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SPH 451",
-        "course_title": "Nuclear and Particle Physics",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 452",
-        "course_title": "Physics of Molecules",
-        "year": 4,
-        "semester": 2,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 453",
-        "course_title": "Introduction to Lasers",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 454",
-        "course_title": "Lasers Physics",
-        "year": 4,
-        "semester": 2,
-        "type": "Elective"
-    },
-    {
-        "code": "SPH 455",
-        "course_title": "Plasma Fusion",
-        "year": 4,
-        "semester": 2,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 400",
-        "course_title": "Innovation Practice",
-        "year": 4,
-        "semester": 1,
-        "type": "Core"
-    },
+{
+    "courseCode": "I39",
+    "units": [
+        {
+            "code": "CCS 001",
+            "course_title": "Communication Skills",
+            "year": 1,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "CCS 009",
+            "course_title": "Elements of Economics",
+            "year": 1,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "CCS 010",
+            "course_title": "HIV/AIDS",
+            "year": 1,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SPH 101",
+            "course_title": "Mechanics I",
+            "year": 1,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SPH 102",
+            "course_title": "Electricity and Magnetism",
+            "year": 1,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SPH 103",
+            "course_title": "Waves and Optics",
+            "year": 1,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SPM 100",
+            "course_title": "Computing Laboratory I",
+            "year": 1,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SPM 101",
+            "course_title": "Computing Laboratory",
+            "year": 1,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SMA 101",
+            "course_title": "Basic Mathematics",
+            "year": 1,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SMA 103",
+            "course_title": "Calculus I",
+            "year": 1,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SMA 104",
+            "course_title": "Calculus II",
+            "year": 1,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SMA 105",
+            "course_title": "Geometry I",
+            "year": 1,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SMA 108",
+            "course_title": "Discrete Mathematics",
+            "year": 1,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SMA 140",
+            "course_title": "Introduction to Probability and Statistics",
+            "year": 1,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SPH 201",
+            "course_title": "Mechanics II",
+            "year": 2,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SPH 203",
+            "course_title": "Structure and Properties of Matter",
+            "year": 2,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SPH 204",
+            "course_title": "Mathematical Physics I",
+            "year": 2,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SPM 200",
+            "course_title": "Embedded Systems Laboratory",
+            "year": 2,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SPM 201",
+            "course_title": "Mathematical and Geometric Modelling Laboratory",
+            "year": 2,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SPM 202",
+            "course_title": "Electromagnetic Fields and Circuits Laboratory",
+            "year": 2,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SPM 203",
+            "course_title": "Communication Networks",
+            "year": 2,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SPM 204",
+            "course_title": "Introduction to Operating Systems",
+            "year": 2,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SMA 201",
+            "course_title": "Calculus III",
+            "year": 2,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SMA 203",
+            "course_title": "Linear Algebra I",
+            "year": 2,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SMA 204",
+            "course_title": "Linear Algebra II",
+            "year": 2,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SMA 208",
+            "course_title": "Ordinary Differential Equations I",
+            "year": 2,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SMA 240",
+            "course_title": "Probability and Statistics I",
+            "year": 2,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SMA 221",
+            "course_title": "Vector Analysis",
+            "year": 2,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SPH 301",
+            "course_title": "Practical Physics",
+            "year": 3,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SPH 303",
+            "course_title": "Solid State Physics I",
+            "year": 3,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SPH 304",
+            "course_title": "Electrodynamics",
+            "year": 3,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 305",
+            "course_title": "Classical Mechanics",
+            "year": 3,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SPH 306",
+            "course_title": "Mathematical Physics II",
+            "year": 3,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SPH 308",
+            "course_title": "Physical Optics",
+            "year": 3,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SPH 309",
+            "course_title": "Quantum Mechanics I",
+            "year": 3,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SPH 310",
+            "course_title": "Environmental Physics",
+            "year": 3,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 311",
+            "course_title": "Introductory Geophysics",
+            "year": 3,
+            "semester": 2,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 350",
+            "course_title": "Atomic Physics",
+            "year": 3,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SPH 351",
+            "course_title": "Biophysics",
+            "year": 3,
+            "semester": 2,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 300",
+            "course_title": "Electronics Laboratory",
+            "year": 3,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 301",
+            "course_title": "Introductory Electronics",
+            "year": 3,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 302",
+            "course_title": "Digital Electronics",
+            "year": 3,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 303",
+            "course_title": "Advanced Electronics",
+            "year": 3,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 304",
+            "course_title": "Microwave Theory and Circuits",
+            "year": 3,
+            "semester": 2,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 305",
+            "course_title": "Signals and Systems",
+            "year": 3,
+            "semester": 2,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 306",
+            "course_title": "Control Systems",
+            "year": 3,
+            "semester": 2,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 307",
+            "course_title": "Computational Physics",
+            "year": 3,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 403",
+            "course_title": "Solid State Physics II",
+            "year": 4,
+            "semester": 2,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 404",
+            "course_title": "Statistical Physics",
+            "year": 4,
+            "semester": 2,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 405",
+            "course_title": "Electrodynamics II",
+            "year": 4,
+            "semester": 2,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 407",
+            "course_title": "Mathematical Physics III",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 408",
+            "course_title": "Physics of Materials",
+            "year": 4,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SPH 409",
+            "course_title": "Quantum Mechanics II",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 411",
+            "course_title": "Surface Physics",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 413",
+            "course_title": "Astrophysics",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 414",
+            "course_title": "Elementary Particle Physics",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 415",
+            "course_title": "Applied Geophysics",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 416",
+            "course_title": "Rock Magnetism and Paleomagnetism",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 417",
+            "course_title": "Aeronomy",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 450",
+            "course_title": "Research and Experimental Methods",
+            "year": 4,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SPH 451",
+            "course_title": "Nuclear and Particle Physics",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 452",
+            "course_title": "Physics of Molecules",
+            "year": 4,
+            "semester": 2,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 453",
+            "course_title": "Introduction to Lasers",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 454",
+            "course_title": "Lasers Physics",
+            "year": 4,
+            "semester": 2,
+            "type": "Elective"
+        },
+        {
+            "code": "SPH 455",
+            "course_title": "Plasma Fusion",
+            "year": 4,
+            "semester": 2,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 400",
+            "course_title": "Innovation Practice",
+            "year": 4,
+            "semester": 1,
+            "type": "Core"
+        },
 
-    {
-        "code": "SPM 401",
-        "course_title": "Industrial Project ",
-        "year": 4,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SPM 402",
-        "course_title": "Entrepreneurship",
-        "year": 4,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SPM 403",
-        "course_title": "Information Security ",
-        "year": 4,
-        "semester": 2,
-        "type": "Core"
-    },
-    {
-        "code": "SPM 404",
-        "course_title": "Electronic Instrumentation",
-        "year": 4,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SPM 405",
-        "course_title": "Machine Learning ",
-        "year": 4,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SPM 406",
-        "course_title": "Software Development ",
-        "year": 4,
-        "semester": 1,
-        "type": "Core"
-    },
-    {
-        "code": "SPM 410",
-        "course_title": "Concurrent and Distributed Programming",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 411",
-        "course_title": "Artificial Intelligence",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 412",
-        "course_title": "Deep Machine learning",
-        "year": 4,
-        "semester": 2,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 420",
-        "course_title": "Introduction to Soft Computing",
-        "year": 4,
-        "semester": 2,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 421",
-        "course_title": "Industrial Electronics and Automation",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 422",
-        "course_title": "Power Electronics",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 423",
-        "course_title": "Mechatronics",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 424",
-        "course_title": "Digital Image Processing",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 425",
-        "course_title": "Fluid Mechanics",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 430",
-        "course_title": "Analogue and Digital Communication Systems",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 431",
-        "course_title": "Information Theory",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    },
-    {
-        "code": "SPM 432",
-        "course_title": "Antenna Theory and Radio wave Propagation",
-        "year": 4,
-        "semester": 1,
-        "type": "Elective"
-    }
-]
+        {
+            "code": "SPM 401",
+            "course_title": "Industrial Project ",
+            "year": 4,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SPM 402",
+            "course_title": "Entrepreneurship",
+            "year": 4,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SPM 403",
+            "course_title": "Information Security ",
+            "year": 4,
+            "semester": 2,
+            "type": "Core"
+        },
+        {
+            "code": "SPM 404",
+            "course_title": "Electronic Instrumentation",
+            "year": 4,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SPM 405",
+            "course_title": "Machine Learning ",
+            "year": 4,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SPM 406",
+            "course_title": "Software Development ",
+            "year": 4,
+            "semester": 1,
+            "type": "Core"
+        },
+        {
+            "code": "SPM 410",
+            "course_title": "Concurrent and Distributed Programming",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 411",
+            "course_title": "Artificial Intelligence",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 412",
+            "course_title": "Deep Machine learning",
+            "year": 4,
+            "semester": 2,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 420",
+            "course_title": "Introduction to Soft Computing",
+            "year": 4,
+            "semester": 2,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 421",
+            "course_title": "Industrial Electronics and Automation",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 422",
+            "course_title": "Power Electronics",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 423",
+            "course_title": "Mechatronics",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 424",
+            "course_title": "Digital Image Processing",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 425",
+            "course_title": "Fluid Mechanics",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 430",
+            "course_title": "Analogue and Digital Communication Systems",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 431",
+            "course_title": "Information Theory",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        },
+        {
+            "code": "SPM 432",
+            "course_title": "Antenna Theory and Radio wave Propagation",
+            "year": 4,
+            "semester": 1,
+            "type": "Elective"
+        }
+    ]
+}

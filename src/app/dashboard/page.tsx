@@ -4,6 +4,8 @@ import { getUserFromDb } from '@/lib/user'
 import SemesterUnits, { UnitsSkeleton } from './overview/SemesterUnits'
 import ModerationBanner from '../../components/dashboard/ModeratorBanner'
 import { Skeleton } from '@/components/ui/skeleton'
+import { UserType } from '@prisma/client'
+import ModeratorUnits from './overview/ModeratorUnits'
 type Props = {}
 
 async function page({}: Props) {
@@ -11,12 +13,19 @@ async function page({}: Props) {
 
     return (
         <div className="p-4">
-            {/* @ts-expect-error Server Component */}
-            {user && <ModerationBanner courseId={user?.courseId} />}
+            {user && user.type == UserType.STUDENT && (
+                //  @ts-expect-error Server Component
+                <ModerationBanner courseId={user?.courseId} />
+            )}
             <RecentSkeleton />
             <React.Suspense fallback={<UnitsSkeleton />}>
-                {/* @ts-expect-error Server Component */}
-                {user ? <SemesterUnits user={user} /> : null}
+                {user && user.type == UserType.STUDENT ? (
+                    //  @ts-expect-error Server Component
+                    <SemesterUnits user={user} />
+                ) : (
+                    //  @ts-expect-error Server Component
+                    <ModeratorUnits moderatorId={user?.moderator?.id} />
+                )}
             </React.Suspense>
             {/* <UnitsSkeleton /> */}
         </div>

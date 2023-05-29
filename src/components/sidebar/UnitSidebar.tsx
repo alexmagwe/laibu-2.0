@@ -7,7 +7,7 @@ import {
     CollapsibleTrigger,
 } from '@/components/ui/collapsible'
 import clsx from 'clsx'
-import { isModeratorForCourse } from '@/lib/user'
+import { isModeratorForUnit } from '@/lib/user'
 export type SidebarLink = {
     href: string
     name: string
@@ -21,7 +21,7 @@ type Props = {
 
 const Sidebar = async ({ navigation, showFooter = false, unit }: Props) => {
     //todo add link when user is moderator
-    const isModerator = await isModeratorForCourse()
+    const isModerator = await isModeratorForUnit(unit.id)
 
     return (
         <aside className="max-w-[200px] bg-secondary  min-h-screen  shadow-md sticky top-0 items-start z-50 pt-8">

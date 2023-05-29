@@ -1,10 +1,9 @@
 import { Skeleton } from '@/components/ui/skeleton'
-import { Content, Unit, UserModeratingUnit } from '@prisma/client'
+import { Unit } from '@prisma/client'
 import React from 'react'
 import { FileItem } from './FileItem'
 import { db } from '@/lib/db'
 import EmptyContent from '@/components/ui/emptyContent'
-import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { isModeratorForCourse } from '@/lib/user'
 

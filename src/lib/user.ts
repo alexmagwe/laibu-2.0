@@ -14,6 +14,7 @@ export const getUserFromDb = cache(async () => {
             where: { id: session?.user.id },
             include: {
                 course: true,
+                moderator: true,
             },
         })
 
@@ -25,11 +26,25 @@ export const getUserFromDb = cache(async () => {
 })
 export const isModeratorForCourse = cache(async () => {
     const user = await getUserFromDb()
-    if (user) {
+    if (user && user.courseId) {
         const isModerator = await db.userModeratingCourse.findFirst({
             where: {
                 userId: user.id,
                 courseId: user.courseId!,
+            },
+        })
+        return !!isModerator
+    }
+
+    return false
+})
+export const isModeratorForUnit = cache(async (unitId: string) => {
+    const user = await getUserFromDb()
+    if (user && user.moderator) {
+        const isModerator = await db.userModeratingUnit.findFirst({
+            where: {
+                moderatorId: user.moderator.id,
+                unitId: unitId,
             },
         })
         return !!isModerator

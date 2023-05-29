@@ -36,22 +36,45 @@ model Session {
 }
 
 model User {
-    id            String                 @id @default(cuid())
+    id            String     @id @default(cuid())
     name          String?
-    email         String?                @unique
+    email         String?    @unique
     emailVerified DateTime?
     image         String?
-    isNew         Boolean                @default(true)
+    isNew         Boolean    @default(true)
     username      String?
     courseId      String?
-    course        Course?                @relation(fields: [courseId], references: [id])
+    course        Course?    @relation(fields: [courseId], references: [id])
     semester      Int?
     year          Int?
+    type          UserType   @default(STUDENT)
     accounts      Account[]
     sessions      Session[]
-    createdAt     DateTime               @default(now())
-    moderating    UserModeratingCourse[]
-    Content       Content[]
+    createdAt     DateTime   @default(now())
+    content       Content[]
+    moderator     Moderator?
+}
+
+model ApprovedEmail {
+    id        String   @id @default(cuid())
+    email     String   @unique
+    createdAt DateTime @default(now())
+}
+
+model Moderator {
+    id                String                 @id @default(uuid())
+    createdAt         DateTime               @default(now())
+    approved          Boolean                @default(false)
+    account           User                   @relation(fields: [userId], references: [id])
+    userId            String                 @unique
+    unitsModerating   UserModeratingUnit[]
+    coursesModerating UserModeratingCourse[]
+}
+
+enum UserType {
+    STUDENT
+    LECTURER
+    ADMIN
 }
 
 model Course {
@@ -64,42 +87,58 @@ model Course {
 }
 
 model Unit {
-    id       String    @id @default(uuid())
-    courses  Course[]
-    name     String
-    code     String    @unique
-    year     Int
-    type     String    @default("Core")
-    semester Int
-    content  Content[]
+    id        String               @id @default(uuid())
+    courses   Course[]
+    name      String
+    code      String               @unique
+    year      Int
+    type      String               @default("Core")
+    semester  Int
+    content   Content[]
+    moderator UserModeratingUnit[]
 }
 
 model UserModeratingCourse {
-    id          String    @id @default(uuid())
+    id          String     @id @default(uuid())
     userId      String
-    start_date  DateTime  @default(now())
+    start_date  DateTime   @default(now())
     phoneNumber String?
+    approved    Boolean    @default(false)
     year        Int?
     uploads     Content[]
+    moderator   Moderator? @relation(fields: [moderatorId], references: [id])
+    moderatorId String?
     courseId    String
-    user        User      @relation(fields: [userId], references: [id])
-    course      Course    @relation(fields: [courseId], references: [id])
+    course      Course     @relation(fields: [courseId], references: [id])
+}
+
+model UserModeratingUnit {
+    id          String     @id @default(uuid())
+    start_date  DateTime   @default(now())
+    year        Int?
+    uploads     Content[]
+    unitId      String
+    unit        Unit       @relation(fields: [unitId], references: [id])
+    moderator   Moderator? @relation(fields: [moderatorId], references: [id])
+    moderatorId String
 }
 
 model Content {
-    id          String               @id @default(uuid())
-    name        String               @unique
-    updatedName String
-    size        Int?
-    uploader    UserModeratingCourse @relation(fields: [uploaderId], references: [id])
-    uploaderId  String
-    uploadDate  DateTime             @default(now())
-    permissions Permissions          @default(EVERY_ONE)
-    unit        Unit[]
-    url         String               @unique
-    type        ContentVariant       @default(NOTES)
-    User        User?                @relation(fields: [userId], references: [id])
-    userId      String?
+    id                   String               @id @default(uuid())
+    name                 String               @unique
+    updatedName          String
+    size                 Int?
+    uploader             UserModeratingCourse @relation(fields: [uploaderId], references: [id])
+    uploaderId           String
+    uploadDate           DateTime             @default(now())
+    permissions          Permissions          @default(EVERY_ONE)
+    unit                 Unit[]
+    url                  String               @unique
+    type                 ContentVariant       @default(NOTES)
+    User                 User?                @relation(fields: [userId], references: [id])
+    userId               String?
+    userModeratingUnit   UserModeratingUnit?  @relation(fields: [userModeratingUnitId], references: [id])
+    userModeratingUnitId String?
 }
 
 enum Permissions {

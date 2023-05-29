@@ -1,0 +1,48 @@
+import { PrismaClient } from '@prisma/client'
+import data from './mti2.json'
+const prisma = new PrismaClient()
+async function main() {
+    const course = await prisma.course.findFirst({
+        where: {
+            code: data.courseCode,
+        },
+    })
+    if (course) {
+        try {
+            const result = await prisma.course.update({
+                where: {
+                    id: course.id,
+                },
+                include: {
+                    units: true,
+                },
+                data: {
+                    units: {
+                        create: data.units.map((unit) => ({
+                            name: unit.course_title,
+                            code: unit.code,
+                            type: unit.type,
+                            semester: unit.semester,
+                            year: unit.year,
+                        })),
+                    },
+                },
+            })
+
+            console.log(`successfully added units`)
+        } catch (e) {
+            console.log(e)
+        }
+    } else {
+        console.log('course not found')
+    }
+}
+main()
+    .then(async () => {
+        await prisma.$disconnect()
+    })
+    .catch(async (e) => {
+        console.error(e)
+        await prisma.$disconnect()
+        process.exit(1)
+    })

@@ -1,7 +1,8 @@
 import { getAuthUser } from '@/lib/user'
 import React from 'react'
-import UserForm from './UserForm'
+import StudentOnboardingForm from './StudentOnboardingForm'
 import { db } from '@/lib/db'
+import OnboardingDialog from './OnboardingDialog'
 // import { StepOne } from "./steps/Course";
 type Props = {}
 
@@ -21,7 +22,8 @@ async function page({}: Props) {
                 Your personalized experience is almost ready, just a few more
                 steps
             </h2>
-            <UserForm user={user} courses={courses} />
+
+            <OnboardingDialog user={user} courses={courses} />
         </div>
     )
 }

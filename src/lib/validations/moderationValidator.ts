@@ -8,3 +8,9 @@ export const moderationSchema = z.object({
 export const moderationFormSchema = z.object({
     phoneNumber: z.string().min(10).max(10),
 })
+export const unitModerationSchema = z.array(z.object({ id: z.string().uuid() }))
+export const unitsUpdateModerationSchema = z.object({
+    moderatorId: z.string().uuid(),
+    deleteUnits: z.array(z.string().uuid()),
+    createUnits: z.array(z.string().uuid()),
+})

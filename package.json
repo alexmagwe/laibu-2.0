@@ -6,6 +6,7 @@
         "dev": "next dev",
         "turbo": "next dev --turbo",
         "build": "next build",
+        "indexUnits": "tsx ./src/lib/scripts/indexUnits.ts",
         "start": "next start",
         "lint": "next lint"
     },
@@ -52,15 +53,17 @@
         "@types/lodash": "^4.14.194",
         "@types/node": "20.1.0",
         "@types/react-instantsearch-dom": "^6.12.3",
+        "dotenv": "^16.0.3",
         "prettier": "^2.8.8",
         "prettier-plugin-tailwindcss": "^0.3.0",
         "prisma": "^4.13.0",
         "tailwindcss-animate": "^1.0.5",
         "ts-node": "^10.9.1",
+        "tsx": "^3.12.7",
         "typescript": "5.0.4"
     },
     "prisma": {
         "schema": "./src/prisma/schema.prisma",
-        "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./src/prisma/seed.ts"
+        "seedCourseUnits": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./src/prisma/seedCourseUnits.ts"
     }
 }
