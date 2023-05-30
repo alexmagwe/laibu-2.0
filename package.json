@@ -5,6 +5,7 @@
     "scripts": {
         "dev": "next dev",
         "turbo": "next dev --turbo",
+        "postinstall": "prisma generate",
         "build": "next build",
         "indexUnits": "tsx ./src/lib/scripts/indexUnits.ts",
         "start": "next start",
