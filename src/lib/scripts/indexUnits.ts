@@ -16,7 +16,7 @@ export async function indexUnits() {
 
     if (units.length > 0) {
         try {
-            await algoliaServerClient.initIndex('units').saveObjects(
+            await algoliaServerClient.initIndex('units').replaceAllObjects(
                 units.map((unit) => {
                     return {
                         ...unit,

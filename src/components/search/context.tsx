@@ -23,7 +23,7 @@ export const SearchContext = React.createContext<SearchContextType<any>>({
     clear: () => {},
     callback: () => {},
 })
-export default function SearchBar({ index, callback, children }: Props) {
+export default function SearchContextProvider({ callback, children }: Props) {
     const { query, refine, clear } = useSearchBox()
     const { hits } = useHits<Unit>()
 

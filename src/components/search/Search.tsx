@@ -8,7 +8,7 @@ type Props = {}
 
 export default function Search({}: Props) {
     return (
-        <div className="relative ">
+        <div className="relative w-full  ">
             <SearchBox />
             <Hits hitComponent={MyHits} />
         </div>

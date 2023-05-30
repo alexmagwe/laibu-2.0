@@ -5,18 +5,26 @@ import { SessionProvider } from 'next-auth/react'
 import { Search } from 'lucide-react'
 import ThemeSwitch from '../ui/ThemeSwitch'
 import UserAvatar from '../ui/UserProfile'
-
+import { SearchBar } from '../search/SearchBar'
+import { Unit } from '@prisma/client'
+import { useRouter } from 'next/navigation'
 export default function DashboardNavbar() {
     const [menuState, setMenuState] = useState(false)
-
+    const router = useRouter()
     // Replace javascript:void(0) path with your path
     const navigation = [
         { title: 'Home', path: '/' },
         // { title: 'Store', path: '/store' },
     ]
+    const callback = (hit: Unit) => {
+        console.log(hit)
+        if (hit && typeof hit.code === 'string')
+            router.push('/unit/' + hit.code)
+    }
+
     return (
         <nav className=" border-b">
-            <div className="flex items-center space-x-8 py-3 px-4 max-w-screen-xl mx-auto md:px-8">
+            <div className="flex items-center space-x-8 py-3 px-4  mx-auto md:px-8">
                 <div className="flex-1 flex items-center justify-between">
                     <div
                         className={`  w-full top-16 left-0 p-4 border-b  lg:static lg:block lg:border-none ${
@@ -31,20 +39,9 @@ export default function DashboardNavbar() {
                             ))}
                         </ul>
                     </div>
-                    <div className="flex-1 flex items-center justify-end space-x-2 sm:space-x-6">
-                        <form className="relative shadow-md flex items-center  border rounded-md ">
-                            <span>
-                                <Search
-                                    className=" absolute right-2 top-50 -translate-y-[50%]"
-                                    size={15}
-                                />
-                            </span>
-                            <input
-                                className="w-full p-2 rounded-md outline-none appearance-none placeholder-gray-500  sm:w-auto"
-                                type="text"
-                                placeholder="Search"
-                            />
-                        </form>
+                    <div className="flex items-center space-x-2 sm:space-x-6">
+                        <SearchBar callback={callback} index="units" />
+
                         <ThemeSwitch />
                         <div className="flex items-center gap-x-4">
                             <UserAvatar />

@@ -5,9 +5,9 @@ import React from 'react'
 import StudentOnboardingForm from './StudentOnboardingForm'
 import { Course, Moderator, User, UserType } from '@prisma/client'
 import ModeratorForm from './ModeratorForm'
-import { Button } from '@/components/ui/button'
 import WithDialog from '@/components/dashboard/WithDialog'
 import { Sparkles } from 'lucide-react'
+import { ChooseRole } from './ChooseRole'
 
 type Props = {
     courses: Course[]
@@ -25,6 +25,7 @@ export default function OnboardingDialog({ courses, user, isApproved }: Props) {
     const [userType, setUserType] = React.useState<UserType | null>(
         isApproved ? UserType.MODERATOR : null
     )
+
     return (
         <div>
             {userType ? (
@@ -76,9 +77,11 @@ export default function OnboardingDialog({ courses, user, isApproved }: Props) {
                                                 className="text-yellow-500"
                                                 size={15}
                                             />
-                                            <strong>Enable</strong> students
-                                            instant access to updated course
-                                            materials
+                                            <span>
+                                                <strong>Enable</strong>&nbsp;
+                                                access to course materials by
+                                                adding content&nbsp;
+                                            </span>
                                         </li>
                                         <li className="flex gap-2 items-center">
                                             <Sparkles
@@ -87,9 +90,8 @@ export default function OnboardingDialog({ courses, user, isApproved }: Props) {
                                             />
                                             <span>
                                                 <strong>Support</strong>&nbsp;
-                                                students in revising by Adding
-                                                past exams and practice
-                                                materials
+                                                student&apos;s revision by
+                                                Adding practice materials
                                             </span>
                                         </li>
                                         <li className="flex gap-2 items-center">
@@ -123,25 +125,7 @@ export default function OnboardingDialog({ courses, user, isApproved }: Props) {
                     description="your role will determine how you experience your dashboard"
                     buttonText="Add"
                 >
-                    <div>
-                        {/* <h2 className="my-2 text-2xl ">I am a</h2> */}
-                        <div className="flex gap-6 flex-wrap">
-                            <Button
-                                onClick={() => setUserType(UserType.STUDENT)}
-                                className="p-8 rounded-md bg-secondary"
-                            >
-                                <p className="text-xl font-semibold">Student</p>
-                            </Button>
-                            <Button
-                                onClick={() => setUserType(UserType.MODERATOR)}
-                                className="p-8 rounded-md bg-secondary"
-                            >
-                                <p className="text-xl font-semibold">
-                                    Moderator
-                                </p>
-                            </Button>
-                        </div>
-                    </div>
+                    {<ChooseRole setUserType={setUserType} />}
                 </WithDialog>
             )}
         </div>

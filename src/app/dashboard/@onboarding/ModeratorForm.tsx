@@ -1,10 +1,6 @@
 'use client'
-import Search from '@/components/search/Search'
-import SearchContextProvider from '@/components/search/context'
 import { Unit, UserType } from '@prisma/client'
 import React from 'react'
-import { InstantSearch } from 'react-instantsearch-hooks-web'
-import { searchClient } from '@/lib/algolia/client'
 import { ChevronLeft, Loader2, Trash } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import clsx from 'clsx'
@@ -15,6 +11,7 @@ import {
     unitsUpdateModerationSchema,
 } from '@/lib/validations/moderationValidator'
 import { useRouter } from 'next/navigation'
+import { SearchBar } from '@/components/search/SearchBar'
 
 type Props = {
     userType?: UserType | null
@@ -148,15 +145,7 @@ export default function ModeratorForm({
         <div>
             <div className="flex flex-col gap-4 ">
                 <h2>Add Units that you wish to moderate</h2>
-                <InstantSearch
-                    searchClient={searchClient} // this is the Algolia client
-                    indexName="units" // this is your index name
-                >
-                    <SearchContextProvider callback={addUnit} index="units">
-                        <Search />
-                    </SearchContextProvider>
-                </InstantSearch>
-
+                <SearchBar callback={addUnit} index="units" />
                 <div
                     className={clsx(
                         'flex flex-wrap  rounded-md',
@@ -198,11 +187,11 @@ export default function ModeratorForm({
                         <div className="flex gap-2">
                             <Button
                                 type="button"
-                                className="bg-secondary my-3"
+                                className="bg-secondary my-3 text-secondary-foreground hover:text-primary-foreground"
                                 onClick={() => setUserType(null)}
                             >
                                 <ChevronLeft />
-                                <span>back</span>
+                                <span className="">back</span>
                             </Button>
                         </div>
                     )}
