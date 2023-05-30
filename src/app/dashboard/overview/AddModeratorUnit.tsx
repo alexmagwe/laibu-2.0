@@ -1,7 +1,7 @@
 'use client'
 import WithDialog from '@/components/dashboard/WithDialog'
 import React from 'react'
-import LecturerForm from '../@onboarding/LecturerForm'
+import ModeratorForm from '../@onboarding/ModeratorForm'
 import { Unit } from '@prisma/client'
 
 type Props = {
@@ -21,12 +21,12 @@ export default function AddModeratorUnit({
             open={open}
             setOpen={setOpen}
             triggerText="Add"
-            title="My Units"
+            title="Update Units that you will moderate"
             triggerIcon={useIcon}
-            description="add units that you teach"
+            description=""
             buttonText="Add"
         >
-            <LecturerForm
+            <ModeratorForm
                 update
                 setOpen={setOpen}
                 moderatorId={moderatorId}

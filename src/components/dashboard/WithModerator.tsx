@@ -4,13 +4,18 @@ import { redirect } from 'next/navigation'
 
 type Props = {
     children: React.ReactNode
+    unitCode: string
     unitId: string
 }
 
-export default async function WithModerator({ children, unitId }: Props) {
+export default async function WithModerator({
+    children,
+    unitCode,
+    unitId,
+}: Props) {
     const isModerator = await isModeratorForUnit(unitId)
     if (!isModerator) {
-        redirect(`/unit/${unitId}`)
+        redirect(`/unit/${unitCode}`)
     }
 
     return <div>{children}</div>

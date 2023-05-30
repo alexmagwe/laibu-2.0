@@ -14,7 +14,7 @@ import { Plus } from 'lucide-react'
 
 type Props = {
     title: string
-    description: string
+    description: React.ReactNode
     triggerText?: React.ReactNode
     triggerIcon?: boolean
     buttonText: string
@@ -38,8 +38,12 @@ export default function WithDialog({
 }: Props) {
     return (
         <Dialog open={open && open} onOpenChange={setOpen && setOpen}>
-            <DialogTrigger className="p-2 rounded-md bg-primary">
-                {triggerIcon ? <Plus /> : triggerText}
+            <DialogTrigger className="p-2 rounded-md bg-primary text-primary-foreground">
+                {triggerIcon ? (
+                    <Plus />
+                ) : (
+                    <span className="px-4 py-2">{triggerText}</span>
+                )}
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>

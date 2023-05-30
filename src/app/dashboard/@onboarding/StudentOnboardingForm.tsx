@@ -29,6 +29,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Form } from '@/components/ui/form'
 type Props = {
     courses: Course[]
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>
     userType: UserType | null
     setUserType: React.Dispatch<React.SetStateAction<UserType | null>>
     user: User | null
@@ -72,20 +73,19 @@ export default function StudentOnboardingForm({
     courses,
     user,
     userType,
+    setOpen,
     setUserType,
 }: Props) {
     const form = useForm<z.infer<typeof studentOnboardingSchema>>({
         resolver: zodResolver(studentOnboardingSchema),
     })
 
-    const [open, setOpen] = React.useState(false)
     const router = useRouter()
     const [isSubmitting, setIsSubmitting] = React.useState(false)
 
     const [acceptedTerms, setAcceptedTerms] = React.useState<
         boolean | undefined
     >()
-
     const onSubmit = async (data: z.infer<typeof studentOnboardingSchema>) => {
         setIsSubmitting(true)
         //TODO add accept terms
@@ -109,12 +109,13 @@ export default function StudentOnboardingForm({
                 toast.error('Something went wrong')
             }
             setIsSubmitting(false)
-            setOpen(false)
             router.refresh()
+            setOpen(false)
         } catch (e) {
+            console.log(e)
             toast.error('Something went wrong')
             setIsSubmitting(false)
-            setOpen(false)
+            // setOpen(false)
         }
     }
     return (

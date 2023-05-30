@@ -35,7 +35,7 @@ async function SemesterUnits({ user, title, pathSuffix }: Props) {
         <div
             className={clsx(
                 'bg-card border-2 p-4  rounded-md',
-                data.length > 8 ? 'w-full' : 'lg:w-2/3'
+                data.length > 8 ? 'w-full' : 'xl:w-3/4'
             )}
         >
             <h2 className="text-2xl font-bold mb-4">

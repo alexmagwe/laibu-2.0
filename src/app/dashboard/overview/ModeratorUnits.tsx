@@ -1,9 +1,9 @@
-import UnitCard from '@/components/dashboard/UnitCard'
+import UnitCard from '../../../components/dashboard/UnitCard'
 import WithDialog from '@/components/dashboard/WithDialog'
 import EmptyContent from '@/components/ui/emptyContent'
 import { db } from '@/lib/db'
 import React, { cache } from 'react'
-import LecturerForm from '../@onboarding/LecturerForm'
+import ModeratorForm from '../@onboarding/ModeratorForm'
 import { Button } from '@/components/ui/button'
 import { Plus } from 'lucide-react'
 import AddModeratorUnit from './AddModeratorUnit'
@@ -12,11 +12,19 @@ type Props = {
     moderatorId: string
 }
 const getModeratorUnits = cache(async (moderatorId: string) => {
-    const units = await db.unit.findMany({
+    const units = await db.moderator.findFirst({
         where: {
-            moderator: {
-                some: {
-                    moderatorId: { equals: moderatorId },
+            id: moderatorId,
+        },
+        include: {
+            unitsModerating: {
+                where: {
+                    moderatorId: {
+                        equals: moderatorId,
+                    },
+                },
+                include: {
+                    unit: true,
                 },
             },
         },
@@ -25,6 +33,7 @@ const getModeratorUnits = cache(async (moderatorId: string) => {
 })
 export default async function ModeratorUnits({ moderatorId }: Props) {
     const data = await getModeratorUnits(moderatorId)
+    const units = data?.unitsModerating.map((unit) => unit.unit) ?? []
 
     return (
         <div className="bg-card rounded-md border-2 py-2 px-4 ">
@@ -33,18 +42,18 @@ export default async function ModeratorUnits({ moderatorId }: Props) {
                 <AddModeratorUnit
                     useIcon
                     moderatorId={moderatorId}
-                    data={data}
+                    data={units}
                 />
             </div>
             <div className="flex flex-wrap gap-4">
-                {data.length > 0 ? (
-                    data.map((unit) => <UnitCard key={unit.id} item={unit} />)
+                {units.length > 0 ? (
+                    units.map((unit) => <UnitCard key={unit.id} item={unit} />)
                 ) : (
-                    <div>
-                        <EmptyContent caption="Get started by adding some units that you teach" />
+                    <div className="flex w-full flex-col gap-2 items-center justify-center">
+                        <EmptyContent caption="Get started by adding some units that you will moderate" />
                         <AddModeratorUnit
                             moderatorId={moderatorId}
-                            data={data}
+                            data={units}
                         />
                     </div>
                 )}

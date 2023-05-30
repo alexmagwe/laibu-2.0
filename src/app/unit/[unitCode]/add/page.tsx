@@ -18,7 +18,7 @@ async function page(props: Props) {
 
     return (
         // @ts-expect-error Server Component
-        <WithModerator unitId={decodeURI(data?.id)}>
+        <WithModerator unitId={decodeURI(data?.id)} unitCode={data?.code}>
             <div>
                 <h1 className="text-2xl mb-4"></h1>
             </div>

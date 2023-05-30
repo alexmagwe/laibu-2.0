@@ -57,6 +57,7 @@
         "prettier": "^2.8.8",
         "prettier-plugin-tailwindcss": "^0.3.0",
         "prisma": "^4.13.0",
+        "tailwind-scrollbar": "^3.0.4",
         "tailwindcss-animate": "^1.0.5",
         "ts-node": "^10.9.1",
         "tsx": "^3.12.7",
@@ -64,6 +65,6 @@
     },
     "prisma": {
         "schema": "./src/prisma/schema.prisma",
-        "seedCourseUnits": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./src/prisma/seedCourseUnits.ts"
+        "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./src/prisma/seedCourseUnits.ts"
     }
 }

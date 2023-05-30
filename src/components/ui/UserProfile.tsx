@@ -24,15 +24,21 @@ function UserSidebarProfile({}: Props) {
             <DropdownMenu>
                 <DropdownMenuTrigger>
                     {user && user.image ? (
-                        <Avatar className="my-2">
+                        <Avatar className="my-2 border-2">
                             <AvatarImage src={user.image} />
                         </Avatar>
                     ) : (
                         <User2Icon size={20} />
                     )}
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="">
-                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuContent align="end" className="">
+                    <DropdownMenuLabel>
+                        {user?.name}
+                        <p className="text-muted-foreground text-sm">
+                            {user?.email}
+                        </p>
+                    </DropdownMenuLabel>
+
                     <DropdownMenuSeparator className="" />
                     <DropdownMenuItem>
                         <Link href="/profile">Profile</Link>

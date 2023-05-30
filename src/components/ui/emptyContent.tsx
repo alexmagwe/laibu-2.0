@@ -15,7 +15,7 @@ type Props = {
 export default function EmptyContent({ caption, link }: Props) {
     return (
         <div>
-            <div className="p-4  flex flex-col gap-4 items-center">
+            <div className="p-4 w-full flex flex-col gap-4 items-center justify-center">
                 <Image
                     src={empty.src}
                     alt="empty content"

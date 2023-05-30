@@ -2,7 +2,7 @@ import React from 'react'
 import SemesterUnits, { UnitsSkeleton } from '../overview/SemesterUnits'
 import { getUserFromDb } from '@/lib/user'
 import WithModerator from '@/components/dashboard/WithModerator'
-import UnitCard from '@/components/dashboard/UnitCard'
+import UnitCard from '../../../components/dashboard/UnitCard'
 import Link from 'next/link'
 
 type Props = {}

@@ -34,7 +34,30 @@ async function main() {
             console.log(e)
         }
     } else {
-        console.log('course not found')
+        try {
+            const result = await prisma.course.create({
+                include: {
+                    units: true,
+                },
+                data: {
+                    code: data.courseCode,
+                    name: data.courseName,
+                    units: {
+                        create: data.units.map((unit) => ({
+                            name: unit.course_title,
+                            code: unit.code,
+                            type: unit.type,
+                            semester: unit.semester,
+                            year: unit.year,
+                        })),
+                    },
+                },
+            })
+
+            console.log(`successfully created course and seeded units`)
+        } catch (e) {
+            console.log(e)
+        }
     }
 }
 main()

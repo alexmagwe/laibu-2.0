@@ -24,7 +24,7 @@ const Sidebar = async ({ navigation, showFooter = false, unit }: Props) => {
     const isModerator = await isModeratorForUnit(unit.id)
 
     return (
-        <aside className="max-w-[200px] bg-secondary  min-h-screen  shadow-md sticky top-0 items-start z-50 pt-8">
+        <aside className="max-w-[225px] bg-secondary p-2  min-h-screen  shadow-md sticky top-0 items-start z-50 pt-8">
             <div className="w-full h-full flex flex-col ">
                 <SidebarHeader unit={unit} />
                 <div className=" flex flex-col flex-1 items-center justify-between">

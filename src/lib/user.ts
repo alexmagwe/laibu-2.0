@@ -10,15 +10,17 @@ export const getAuthUser = async () => {
 export const getUserFromDb = cache(async () => {
     try {
         const session = await getServerSession(authOptions)
-        const user = await db.user.findUnique({
-            where: { id: session?.user.id },
-            include: {
-                course: true,
-                moderator: true,
-            },
-        })
-
-        return user
+        if (session) {
+            const user = await db.user.findUnique({
+                where: { id: session?.user.id },
+                include: {
+                    course: true,
+                    moderator: true,
+                },
+            })
+            return user
+        }
+        return null
     } catch (e) {
         console.error(e)
         return null

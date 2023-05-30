@@ -1,4 +1,4 @@
-import { getAuthUser } from '@/lib/user'
+import { getAuthUser, getUserFromDb } from '@/lib/user'
 import React from 'react'
 import StudentOnboardingForm from './StudentOnboardingForm'
 import { db } from '@/lib/db'
@@ -7,11 +7,13 @@ import OnboardingDialog from './OnboardingDialog'
 type Props = {}
 
 async function page({}: Props) {
-    const authUser = await getAuthUser()
     const courses = await db.course.findMany()
-    const user = await db.user.findFirst({
+    const user = await getUserFromDb()
+    const isApproved = await db.approvedEmail.findFirst({
         where: {
-            email: authUser?.email,
+            email: {
+                equals: user?.email!,
+            },
         },
     })
 
@@ -23,7 +25,11 @@ async function page({}: Props) {
                 steps
             </h2>
 
-            <OnboardingDialog user={user} courses={courses} />
+            <OnboardingDialog
+                user={user}
+                isApproved={!!isApproved}
+                courses={courses}
+            />
         </div>
     )
 }

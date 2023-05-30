@@ -5,7 +5,8 @@ import { FileItem } from './FileItem'
 import { db } from '@/lib/db'
 import EmptyContent from '@/components/ui/emptyContent'
 import { Button } from '@/components/ui/button'
-import { isModeratorForCourse } from '@/lib/user'
+import { isModeratorForCourse, isModeratorForUnit } from '@/lib/user'
+import Link from 'next/link'
 
 type Props = {
     unit: Unit
@@ -27,7 +28,7 @@ const getContent = async (unitId: string) => {
 }
 export default async function FileContent({ unit }: Props) {
     const files = await getContent(unit?.id!)
-    const isModerator = await isModeratorForCourse()
+    const isModerator = await isModeratorForUnit(unit.id)
 
     return (
         <div className="flex bg-card border-2 rounded-md flex-col gap-2 p-4">
@@ -41,7 +42,11 @@ export default async function FileContent({ unit }: Props) {
                             <div className="flex flex-col items-center gap-3">
                                 <EmptyContent caption="Content not available yet," />
                                 {isModerator && (
-                                    <Button className="">Add content</Button>
+                                    <Link href={`/unit/${unit.code}/add`}>
+                                        <Button className="">
+                                            Add content
+                                        </Button>
+                                    </Link>
                                 )}
                             </div>
                         )}

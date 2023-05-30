@@ -28,7 +28,7 @@ export async function POST(req: Request) {
             },
             data: {
                 isNew: false,
-                type: UserType.LECTURER,
+                type: UserType.MODERATOR,
                 moderator: {
                     create: {
                         approved: !!isApproved || false,

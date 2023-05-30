@@ -28,7 +28,7 @@ type Props = {
 interface SelectedUnits {
     [id: string]: Unit
 }
-export default function LecturerForm({
+export default function ModeratorForm({
     userType,
     currentUnits,
     moderatorId,
@@ -75,7 +75,6 @@ export default function LecturerForm({
                     createUnits: toBeAdded,
                     deleteUnits: toBeRemoved?.map((unit) => unit.id),
                 }
-                console.log(data)
                 const payload = unitsUpdateModerationSchema.parse(data)
                 const res = await fetch('/api/users/moderator', {
                     method: 'PUT',
@@ -88,7 +87,7 @@ export default function LecturerForm({
                     router.refresh()
                     setOpen && setOpen(false)
                 } else {
-                    toast.error('Something 1 went wrong')
+                    toast.error('Something  went wrong')
                 }
                 if (res.status == 422) {
                     const json = await res.json()
@@ -101,7 +100,7 @@ export default function LecturerForm({
                 if (e instanceof ZodError) console.error(e.issues)
                 setIsSubmitting(false)
                 console.log(e)
-                toast.error('Something went 2 wrong')
+                toast.error('Something went wrong')
             }
         } else {
             try {
@@ -148,6 +147,7 @@ export default function LecturerForm({
     return (
         <div>
             <div className="flex flex-col gap-4 ">
+                <h2>Add Units that you wish to moderate</h2>
                 <InstantSearch
                     searchClient={searchClient} // this is the Algolia client
                     indexName="units" // this is your index name

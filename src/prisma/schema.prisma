@@ -65,7 +65,7 @@ model Moderator {
     id                String                 @id @default(uuid())
     createdAt         DateTime               @default(now())
     approved          Boolean                @default(false)
-    account           User                   @relation(fields: [userId], references: [id])
+    account           User                   @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId            String                 @unique
     unitsModerating   UserModeratingUnit[]
     coursesModerating UserModeratingCourse[]
@@ -73,7 +73,7 @@ model Moderator {
 
 enum UserType {
     STUDENT
-    LECTURER
+    MODERATOR
     ADMIN
 }
 
@@ -106,7 +106,7 @@ model UserModeratingCourse {
     approved    Boolean    @default(false)
     year        Int?
     uploads     Content[]
-    moderator   Moderator? @relation(fields: [moderatorId], references: [id])
+    moderator   Moderator? @relation(fields: [moderatorId], references: [id], onDelete: Cascade)
     moderatorId String?
     courseId    String
     course      Course     @relation(fields: [courseId], references: [id])
@@ -119,7 +119,7 @@ model UserModeratingUnit {
     uploads     Content[]
     unitId      String
     unit        Unit       @relation(fields: [unitId], references: [id])
-    moderator   Moderator? @relation(fields: [moderatorId], references: [id])
+    moderator   Moderator? @relation(fields: [moderatorId], references: [id], onDelete: Cascade)
     moderatorId String
 }
 

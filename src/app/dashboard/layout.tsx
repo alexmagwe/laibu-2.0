@@ -45,7 +45,7 @@ async function layout({ children, onboarding }: Props) {
     const user = await getUserFromDb()
 
     return (
-        <main className="flex  ">
+        <main className="flex bg-background ">
             <Toaster />
             {/* @ts-expect-error  Server Component */}
             <SideBar navigation={navigation} />
