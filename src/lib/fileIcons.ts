@@ -1,7 +1,7 @@
-export const getIconLink = (ext?: string) => {
+export const getIconLink = (ext: string) => {
     if (!ext) {
         return {
-            icon: null,
+            icon: '',
         }
     }
 
@@ -29,7 +29,7 @@ export const getIconLink = (ext?: string) => {
 
         default:
             return {
-                icon: null,
+                icon: '',
             }
     }
 }

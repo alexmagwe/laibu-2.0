@@ -47,7 +47,6 @@ async function layout({ children, onboarding }: Props) {
     return (
         <main className="flex bg-background ">
             <Toaster />
-            {/* @ts-expect-error  Server Component */}
             <SideBar navigation={navigation} />
             <div className="flex-1  col-span-7 flex flex-col gap-4 ">
                 <DashboardNavbar />

@@ -20,7 +20,7 @@ async function main() {
                     units: {
                         create: data.units.map((unit) => ({
                             name: unit.course_title,
-                            code: unit.code,
+                            code: unit.code.replace(/\s/g, ''),
                             type: unit.type,
                             semester: unit.semester,
                             year: unit.year,
@@ -45,7 +45,7 @@ async function main() {
                     units: {
                         create: data.units.map((unit) => ({
                             name: unit.course_title,
-                            code: unit.code,
+                            code: unit.code.replace(/\s/g, ''),
                             type: unit.type,
                             semester: unit.semester,
                             year: unit.year,

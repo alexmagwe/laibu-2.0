@@ -78,9 +78,9 @@ export default function OnboardingDialog({ courses, user, isApproved }: Props) {
                                                 size={15}
                                             />
                                             <span>
-                                                <strong>Enable</strong>&nbsp;
-                                                access to course materials by
-                                                adding content&nbsp;
+                                                <strong>Provide</strong>&nbsp;
+                                                access to course content by
+                                                adding course material&nbsp;
                                             </span>
                                         </li>
                                         <li className="flex gap-2 items-center">
@@ -100,7 +100,7 @@ export default function OnboardingDialog({ courses, user, isApproved }: Props) {
                                                 size={15}
                                             />
                                             <strong>Control</strong> who can
-                                            view the course materials
+                                            view the content and when
                                         </li>
                                     </ul>
                                 </>

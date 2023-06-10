@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import empty from '/public/assets/empty.png'
+import empty from '@public/assets/empty.png'
 
 type Props = {
     caption: string

@@ -3,7 +3,7 @@ import { getUserFromDb } from '@/lib/user'
 
 import WithModerator from '@/components/dashboard/WithModerator'
 import { z } from 'zod'
-import { getUnit } from '../layout'
+import { getUnit } from '../getUnit'
 
 type Props = z.infer<typeof routeContext>
 const routeContext = z.object({
@@ -15,10 +15,10 @@ async function page(props: Props) {
         params: { unitCode },
     } = routeContext.parse(props)
     const data = await getUnit(unitCode)
+    if (!data) return <div>Unit not found</div>
 
     return (
-        // @ts-expect-error Server Component
-        <WithModerator unitId={decodeURI(data?.id)} unitCode={data?.code}>
+        <WithModerator unitId={decodeURI(data.id)} unitCode={data.code}>
             <div>
                 <h1 className="text-2xl mb-4"></h1>
             </div>
