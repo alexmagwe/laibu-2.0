@@ -1,7 +1,9 @@
 import React from 'react'
-import FileContent, { n } from './FileContent'
-import { getUnit } from './getUnit'
+import FileContent from '../FileContent'
+import { ContentVariant } from '@prisma/client'
+import { getUnit } from '../getUnit'
 import EmptyContent from '@/components/ui/emptyContent'
+import { Skeleton } from '@/components/ui/skeleton'
 
 type Props = {
     params: {
@@ -9,14 +11,15 @@ type Props = {
     }
 }
 
-async function page({ params }: Props) {
-    const data = await getUnit(params.unitCode)
+export default async function page({ params }: Props) {
+    const unit = await getUnit(params.unitCode)
 
-    return data ? (
+    return unit ? (
         <FileContent
-            unit={data}
-            title="Course Material"
-            emptyText="Course material not available, check back later"
+            unit={unit}
+            variant={ContentVariant.EXAM}
+            title="Practice"
+            emptyText="No practice Material, check back later"
         />
     ) : (
         <div className="flex flex-col gap-4 h-screen items-center justify-center">
@@ -31,5 +34,3 @@ async function page({ params }: Props) {
         </div>
     )
 }
-
-export default page

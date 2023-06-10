@@ -72,6 +72,7 @@ export default function ModeratorForm({
                     createUnits: toBeAdded,
                     deleteUnits: toBeRemoved?.map((unit) => unit.id),
                 }
+                console.log(data)
                 const payload = unitsUpdateModerationSchema.parse(data)
                 const res = await fetch('/api/users/moderator', {
                     method: 'PUT',
@@ -102,7 +103,7 @@ export default function ModeratorForm({
         } else {
             try {
                 const data = Object.keys(units).map((id) => {
-                    return { id: id }
+                    return { unitId: id }
                 })
                 const payload = unitModerationSchema.parse(data)
                 const res = await fetch('/api/users/moderator', {

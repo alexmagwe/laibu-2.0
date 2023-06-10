@@ -1,8 +1,8 @@
 import DashboardNavbar from '@/components/dashboard/DashboardNavbar'
 import Sidebar, { SidebarLink } from '@/components/sidebar/UnitSidebar'
-import { db } from '@/lib/db'
 import { BrainCog, FileText, Layers } from 'lucide-react'
-import React, { cache } from 'react'
+import React from 'react'
+import { getUnit } from './getUnit'
 
 type Props = {
     children: React.ReactNode
@@ -11,13 +11,6 @@ type Props = {
     }
 }
 
-export const getUnit = cache(async (unitCode: string) => {
-    return await db.unit.findUnique({
-        where: {
-            code: decodeURI(unitCode),
-        },
-    })
-})
 export async function generateMetadata({
     params,
 }: {
@@ -28,7 +21,7 @@ export async function generateMetadata({
     return {
         title: unit?.code,
         description: unit?.name,
-        keywords: [unit?.code, unit?.name],
+        keywords: [unit?.code ?? '', unit?.name ?? ''],
     }
 }
 
@@ -55,11 +48,10 @@ async function layout({ children, params }: Props) {
         <main className="">
             {unit ? (
                 <div className="flex">
-                    {/* @ts-expect-error Server Component */}
                     <Sidebar navigation={navigation} unit={unit} />
                     <div className="flex-1">
                         <DashboardNavbar />
-                        {children}
+                        <div className="p-4 bg-background">{children}</div>
                     </div>
                 </div>
             ) : (
