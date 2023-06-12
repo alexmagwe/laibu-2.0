@@ -4,7 +4,7 @@ import { getUserFromDb } from '@/lib/user'
 import Link from 'next/link'
 
 type Props = {}
-
+export const dynamic = 'force-dynamic'
 async function page({}: Props) {
     const user = await getUserFromDb()
     return (

@@ -8,7 +8,7 @@ type Props = {
         unitCode: string
     }
 }
-
+export const dynamic = 'force-dynamic'
 async function page({ params }: Props) {
     const data = await getUnit(params.unitCode)
 
