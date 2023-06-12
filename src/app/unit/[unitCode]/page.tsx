@@ -1,5 +1,5 @@
 import React from 'react'
-import FileContent, { n } from './FileContent'
+import FileContent from './FileContent'
 import { getUnit } from './getUnit'
 import EmptyContent from '@/components/ui/emptyContent'
 
