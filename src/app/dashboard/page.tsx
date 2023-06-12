@@ -1,16 +1,14 @@
 import React from 'react'
 import { getUserFromDb } from '@/lib/user'
-import SemesterUnits, { UnitsSkeleton } from './overview/SemesterUnits'
+import SemesterUnits from './overview/SemesterUnits'
 import ModerationBanner from '../../components/dashboard/ModeratorBanner'
-import { Skeleton } from '@/components/ui/skeleton'
 import { UserType } from '@prisma/client'
 import ModeratorUnits from './overview/ModeratorUnits'
-import EmptyContent from '@/components/ui/emptyContent'
 import OnboardingDialog from './@onboarding/OnboardingDialog'
 import { db } from '@/lib/db'
 import OnboardingHeader from './@onboarding/OnboardingHeader'
 type Props = {}
-
+export const dynamic = 'force-dynamic'
 async function page({}: Props) {
     const user = await getUserFromDb()
     const courses = await db.course.findMany()
